@@ -1716,6 +1716,7 @@
     <Content Include="extjs\resources\themes\images\neptune\WYSIWYG.png" />
     <Content Include="extjs\resources\themes\stylesheets\neptune\default\accessories\readme.txt" />
     <Content Include="Global.asax" />
+    <Content Include="guide.txt" />
     <Content Include="Models\CustomMembership.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CustomMembership.edmx</DependentUpon>
