@@ -34,20 +34,7 @@ Ext.define('ExtMVC.view.Viewport', {
             collapsible: false
 
         },
-    //левое онко
-    {
-        title: 'Menu',
-        region: 'west',
-        margins: '5 0 0 0',
-        cmargins: '5 5 0 0',
-        width: 175,
-        minSize: 100,
-        maxSize: 250,
-        //добавляем меню в левое окно
-        dockedItems: [{
-            xtype: 'leftMenu'
-        }],
-    },
+
 
     //центральное окно
     {

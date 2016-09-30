@@ -1,13 +1,12 @@
 Ext.define('ExtMVC.controller.Item', {
     extend: 'Ext.app.Controller',
 
-    stores: ['Shop', 'AdminShop', 'ShopAudio', 'ShopFlash', 'ShopHDD', 'ShopLaptop', 'ShopMause', 'ShopMonitor', 'ShopPhone', 'ShopPhoto', 'ShopTV', 'ShopVideo'],
+    stores: ['Shop', 'AdminShop'],
     models: ['Item'],
 
     views: ['item.Formula', 'item.Add', 'item.TabPanel', 'item.AdminItemGrid',
-            'item.ItemGridAudio', 'item.ItemGridFlash', 'item.ItemGridHDD', 'item.ItemGridLaptop', 'item.ItemGridMause', 'item.ItemGridMonitor', 'item.ItemGridPhone', 'item.ItemGridPhoto', 'item.ItemGridTV', 'item.ItemGridVideo',
             'item.ItemGrid', 'item.GridDetail', 'item.GridMasterDetail',
-            'menu.LeftMenu', 'menu.TopMenu', 
+            'menu.TopMenu', 
             'cart.CartGrid', 'cart.AddToCart'
     ],
 

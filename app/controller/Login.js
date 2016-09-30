@@ -5,7 +5,7 @@ Ext.define('ExtMVC.controller.Login', {
     //models: ['Contact'],
 
     views: ['login.Login', 'login.Register', 'login.LoginWindow', 'login.RegisterWindow', 'login.AccountGrid',
-        'menu.LeftMenu', 'menu.TopMenu',
+        'menu.TopMenu',
         'item.TabPanel'],
 
     refs: [{
@@ -53,7 +53,6 @@ Ext.define('ExtMVC.controller.Login', {
         var win = button.up('window');
         
                 //just a console log to show when the Login Ajax request starts
-	    console.log('Login Ajax Request in progress');
 
 	            loadingText: 'Loading list...';
                 var form = button.up('form').getForm();
@@ -62,7 +61,8 @@ Ext.define('ExtMVC.controller.Login', {
          
                     Ext.Ajax.request({
                         waitTitle: 'Please wait...',
-                        waitMsg: 'Try to login..,',
+                        waitMsg: 'Try to login..',
+                        loadingText: 'Try to login..',
                         url: 'Account/Login',
                         method: 'post',
                         params: { UserName: form.getValues().UserName, Password: form.getValues().Password, RememberMe: Ext.getCmp('RememberMe').isChecked() },
@@ -120,7 +120,6 @@ Ext.define('ExtMVC.controller.Login', {
     onRegisterRequest: function (button) {
                 var win = button.up('window');
                 //just a console log to show when the Login Ajax request starts
-                console.log('Register Ajax Request in progress');
                                
                 var form = button.up('form').getForm();
                 if(form.isValid()){
@@ -128,7 +127,8 @@ Ext.define('ExtMVC.controller.Login', {
 
                     Ext.Ajax.request({
                         waitTitle: 'Please wait...',
-                        waitMsg: 'Try to login..,',
+                        waitMsg: 'Try to Register...',
+                        loadingText: 'Try to Register...',
                         url: 'Account/Register',
                         method: 'post',
                         params: { UserName: form.getValues().UserName, Password: form.getValues().Password, Email: form.getValues().Email, },

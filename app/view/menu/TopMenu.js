@@ -8,7 +8,7 @@ Ext.define('ExtMVC.view.menu.TopMenu', {
     dockedItems: [{
         xtype: 'toolbar',
         dock: 'top',
-        items: [{
+        items: [ {
           //  xtype: 'splitbutton',
             text: 'All Items',
 			width: 60,

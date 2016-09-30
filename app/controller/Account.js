@@ -5,7 +5,7 @@ Ext.define('ExtMVC.controller.Account', {
     models: ['Account'],
 
     views: ['login.AccountGrid', 'login.AllAccountGrid', 
-        'menu.LeftMenu', 'menu.TopMenu',
+         'menu.TopMenu',
         'item.TabPanel', ],
 
     refs: [

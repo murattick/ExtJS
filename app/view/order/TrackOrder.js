@@ -17,8 +17,8 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{
 	{ text: 'Count', width: 170, dataIndex: 'Count', flex: 1 },
 	{ text: 'Status', width: 170, dataIndex: 'Status', flex: 1 },
     { text: 'ItemCode', width: 170, dataIndex: 'Code', flex: 1 },
-    { text: 'OrderDate', width: 170, dataIndex: 'OrderDate', flex: 1 },
-    { text: 'ChangeStatus', width: 170, dataIndex: 'ChangeStatus', flex: 1 },
+    { text: 'OrderDate', width: 170, dataIndex: 'OrderDate', xtype: 'datecolumn', format: 'Y-m-d', flex: 1 },
+    { text: 'ChangeStatus', width: 170, dataIndex: 'ChangeStatus', xtype: 'datecolumn', format: 'Y-m-d', flex: 1 },
     {
         id: 'Total',
         header: 'Total',

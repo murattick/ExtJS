@@ -11,15 +11,21 @@ Ext.define('ExtMVC.view.order.OrderGrid' ,{
         this.columns = [
     { xtype: 'rownumberer' },
     { header: 'OrderID', width: 170, dataIndex: 'OrderID', flex: 1 },
-    { text: 'UserName', width: 170, dataIndex: 'UserName', flex: 1 },
+    { header: 'UserName', width: 170, dataIndex: 'UserName', flex: 1 },
     { header: 'ItemID', width: 170, dataIndex: 'ItemID', flex: 1 },
-    { text: 'ItemCode', width: 170, dataIndex: 'Code', flex: 1 },
-    { text: 'Title', width: 170, dataIndex: 'Title', flex: 1 },
-    { text: 'Price', width: 170, dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney },
-	{ text: 'Count', width: 170, dataIndex: 'Count', flex: 1 },
-	{ text: 'Status', width: 170, dataIndex: 'Status', flex: 1 },
-    { text: 'OrderDate', width: 170, dataIndex: 'OrderDate', flex: 1 },
-    { text: 'ChangeStatus', width: 170, dataIndex: 'ChangeStatus', flex: 1 },
+    { header: 'ItemCode', width: 170, dataIndex: 'Code', flex: 1 },
+    { header: 'Title', width: 170, dataIndex: 'Title', flex: 1 },
+    { header: 'Price', width: 170, dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney },
+	{ header: 'Count', width: 170, dataIndex: 'Count', flex: 1 },
+	{ header: 'Status', width: 170, dataIndex: 'Status', flex: 1 },
+    {
+        header: 'OrderDate', width: 170, dataIndex: 'OrderDate', xtype: 'datecolumn',
+        format: 'd/m/Y', flex: 1
+    },
+{
+    header: 'ChangeStatus', width: 170, dataIndex: 'ChangeStatus', xtype: 'datecolumn',
+    format: 'd/m/Y', flex: 1
+},
     {
         id: 'Total',
         header: 'Total',

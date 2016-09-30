@@ -4,17 +4,8 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', {
 
         store: 'AdminShop',
         requires: ['Ext.toolbar.Paging'],
-        //selType: 'checkboxmodel',
         loadingText: 'Loading list...',
-		//multiSelect: true, 
-		//selModel: 
-        //    { 
-        //     mode: 'MULTI' 
-        //    }, 
-		//viewConfig: 
-        //    { 
-        //     stripeRows: true 
-		//	}, 
+	 
 
 		initComponent: function () {
 		    var me = this;
@@ -49,18 +40,17 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', {
             this.dockedItems = [{
                 xtype: 'toolbar',
                 items: [{
-                    iconCls: 'icon-save',
                     itemId: 'add',
                     text: 'Add',
                     action: 'add'
-                }, {
-                    iconCls:'remove',
+                }, '-', {
                     text: 'Delete',
                     //action: 'delete'
 					itemId: 'delete' 
                 }, '-', {
                     xtype: 'textfield',
-                    emptyText: 'Search',
+                    emptyText: 'Search for Title or Category',
+                    width: 170,
                     listeners: {
                         change: function (field, newValue, oldValue, options) {
                             var grid = me;
@@ -71,8 +61,8 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', {
                                 var matcher = new RegExp(Ext.String.escapeRegex(newValue), "i");
                                 grid.store.filter({
                                     filterFn: function (record) {
-                                        return matcher.test(record.get('ItemID')) ||
-                                                matcher.test(record.get('Title'));
+                                        return  matcher.test(record.get('Title')) ||
+                                                matcher.test(record.get('Category'));
                                     }
                                 });
                             }

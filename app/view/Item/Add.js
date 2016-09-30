@@ -1,17 +1,19 @@
 Ext.define('ExtMVC.view.item.Add', {
     extend: 'Ext.window.Window',
     alias : 'widget.itemform',
-
+    store: 'Shop',
     requires: ['Ext.form.Panel','Ext.form.field.Text'],
 
     title : 'Add Item',
     layout: 'fit',
     autoShow: true,
     width: 300,
-    
-    iconCls: 'icon-user',
 
-    initComponent: function() {
+    initComponent: function () {
+
+        var shop = Ext.data.StoreManager.get("Shop");
+        shop.load();
+
         this.items = [
             {
                 xtype: 'form',
@@ -46,27 +48,23 @@ Ext.define('ExtMVC.view.item.Add', {
                         fieldLabel: 'Code'
                     },
                     {  
-                            xtype: 'radiogroup',
-                            fieldLabel: 'Category',
-                            columns: 2,
-                            vertical: true,
-                            items: [
-                                { boxLabel: 'Audio', name: 'Category', inputValue: 'Audio' },
-                                { boxLabel: 'Flash', name: 'Category', inputValue: 'Flash' },
-                                { boxLabel: 'HDD', name: 'Category', inputValue: 'HDD' },
-                                { boxLabel: 'Laptop', name: 'Category', inputValue: 'Laptop' },
-                                { boxLabel: 'Mause', name: 'Category', inputValue: 'Mause' },
-                                { boxLabel: 'Monitor', name: 'Category', inputValue: 'Monitor' },
-                                { boxLabel: 'Phone', name: 'Category', inputValue: 'Phone' },
-                                { boxLabel: 'Photo', name: 'Category', inputValue: 'Photo' },
-                                { boxLabel: 'TV', name: 'Category', inputValue: 'TV' },
-                                { boxLabel: 'Video', name: 'Category', inputValue: 'Video' },
-                            ] 
+                        xtype: 'combobox',
+                        fieldLabel: 'Choose Category',
+                        displayField: 'Category',
+                        valueField: 'Category',
+                        store: shop,
+                        name: 'Category',
+                        queryMode: 'local',
                     },
                     {
-                        xtype: 'textfield',
+                        xtype: 'combobox',
+                        fieldLabel: 'Choose Brand',
+                        displayField: 'Brand',
+                        valueField: 'Brand',
+                        store: shop,
                         name: 'Brand',
-                        fieldLabel: 'Brand'
+                        queryMode: 'local',
+                       
                     },
                     {
                         xtype: 'numberfield',

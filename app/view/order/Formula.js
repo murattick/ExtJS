@@ -70,19 +70,13 @@ Ext.define('ExtMVC.view.order.Formula', {
                         fieldLabel: 'Price',
 						readOnly: true,
 						renderer: Ext.util.Format.usMoney
-                    },{
-                        xtype: 'datefield',
-                        format: 'd/m/Y',
-                        name : 'OrderDate',
-                        fieldLabel: 'OrderDate',
-                        readOnly: true
-						//value: new Date()  // defaults to today
                     }, {
                         xtype: 'datefield',
-                        format: 'd/m/Y',
+                        altFormats: 'd.m.Y',
                         name: 'ChangeStatus',
                         fieldLabel: 'ChangeStatus',
                         value: new Date(),  // defaults to today
+                        maxValue: new Date(),
                         allowBlank: false,
                         readOnly: true
                     }

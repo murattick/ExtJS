@@ -40,7 +40,8 @@ Ext.define('ExtMVC.view.item.ItemGrid', {
                 xtype: 'toolbar',
                 items: [{
                     xtype: 'textfield',
-                    emptyText: 'Search',
+                    emptyText: 'Search for Title or Category',
+                    width: 170,
                     listeners: {
                         change: function (field, newValue, oldValue, options) {
                             var grid = me;
@@ -51,8 +52,8 @@ Ext.define('ExtMVC.view.item.ItemGrid', {
                                 var matcher = new RegExp(Ext.String.escapeRegex(newValue), "i");
                                 grid.store.filter({
                                     filterFn: function (record) {
-                                        return matcher.test(record.get('ItemID')) ||
-                                                matcher.test(record.get('Title'));
+                                        return matcher.test(record.get('Title')) ||
+                                               matcher.test(record.get('Category'));
                                     }
                                 });
                             }

@@ -69,21 +69,24 @@ Ext.define('ExtMVC.view.order.AddToOrder', {
                     },
                     {
                         xtype: 'datefield',
-                        format: 'd/m/Y',
+                        altFormats: 'd-m-Y',
                         name: 'OrderDate',
                         fieldLabel: 'OrderDate',
-						value: new Date(),  // defaults to today
+                        value: new Date(),  // defaults to today
+                        maxValue: new Date(),
                         allowBlank: false,
 						readOnly: true
                     }, {
                         xtype: 'datefield',
-                        format: 'd/m/Y',
+                        altFormats: 'd-m-Y',
                         name: 'ChangeStatus',
                         fieldLabel: 'ChangeStatus',
                         value: new Date(),  // defaults to today
+                        maxValue: new Date(),
                         allowBlank: false,
                         readOnly: true
-                    }, {
+                    }, 
+                    {
                         xtype: 'textfield',
                         name: 'Status',
                         fieldLabel: 'Status',

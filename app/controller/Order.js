@@ -5,7 +5,7 @@ Ext.define('ExtMVC.controller.Order', {
     models: ['Order', 'Account' ],
 
     views: ['order.TrackOrder', 'order.OrderForm', 'order.OrderGrid', 'order.AddToOrder', 'order.Formula', 'order.OrderUser', 
-        'menu.LeftMenu', 'menu.TopMenu',
+        'menu.TopMenu',
         'item.TabPanel', 'item.AdminItemGrid',
         'cart.CartGrid', ],
 
