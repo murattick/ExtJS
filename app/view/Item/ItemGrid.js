@@ -60,6 +60,15 @@ Ext.define('ExtMVC.view.item.ItemGrid', { //грид товаров
                             }
                         }
                     }
+                },'-',
+                {
+                    
+                        text: 'Clear Filter',
+                        handler: function () {
+         
+                            var audio = Ext.getStore('Shop'); //отфильтрован store по категории аудио
+                            audio.clearFilter();
+                        },
                 }
                 ]
             },

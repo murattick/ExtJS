@@ -20,14 +20,10 @@ var tabs = Ext.define('ExtMVC.view.item.TabPanel', { //код табпанели
         Ext.applyIf(me, {
 
             items: [{
-                loader: {
-                    url: 'app/html/home_tab.html', //подгужена html страница в таб панель для примера
-                    autoLoad: true,
-
-                },
+                xtype: 'gridmasterdetail', //для примера добавил grid в добавляемую tab   
 
                 title: 'The Big Shop',
-                closable: true,
+                closable: false,
             }]
         });
         me.callParent(arguments);

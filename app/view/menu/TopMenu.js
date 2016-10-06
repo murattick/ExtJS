@@ -8,24 +8,26 @@ Ext.define('ExtMVC.view.menu.TopMenu', { //верхнее меню
     dockedItems: [{
         xtype: 'toolbar',
         dock: 'top',
-        items: [ {
-            text: 'All Items',
-			width: 60,
-			handler: function (num) {           
-                Ext.getCmp('tabs').add({
-                    title    : 'All Items',
-                    dockedItems: [{
-                        xtype: 'gridmasterdetail' //для примера добавил grid в добавляемую tab
+        items: [
+        //    {
+        //    text: 'All Items',
+		//	width: 60,
+		//	handler: function (num) {           
+        //        Ext.getCmp('tabs').add({
+        //            title    : 'All Items',
+        //            dockedItems: [{
+        //                xtype: 'gridmasterdetail' //для примера добавил grid в добавляемую tab
                         
-                    }],
-                    closable: true,
-                    activeTab: true,
-                });
-                var AllItemsTab = Ext.getStore('Shop').load(); //отфильтрован store по категории аудио
-                AllItemsTab.clearFilter();
-        }
-        },'-' // <- эта хрень разделяет кнопки
-		,{          
+        //            }],
+        //            closable: true,
+        //            activeTab: true,
+        //        });
+        //        var AllItemsTab = Ext.getStore('Shop').load(); //отфильтрован store по категории аудио
+        //        AllItemsTab.clearFilter();
+        //}
+        //},'-' // <- эта хрень разделяет кнопки
+		//,
+        {
             text: 'Cart',
             width: 50,
             disabled: true,
@@ -69,39 +71,41 @@ Ext.define('ExtMVC.view.menu.TopMenu', { //верхнее меню
 		            closable: true
 		        });
 		    }
-		}, '-', {
-            text: 'About',
-            width: 50,
-			handler: function (num) {           
-                Ext.getCmp('tabs').add({
-                    title    : 'About',
-                    dockedItems: [{
-                        loader: {
-                         url: 'app/html/about.html',
-                         autoLoad: true
-                        }, //для примера добавил html страницу в добавляемую tab
-                                  }],
-                    closable : true
-                });
+		}
+		//}, '-', {
+        //    text: 'About',
+        //    width: 50,
+		//	handler: function (num) {           
+        //        Ext.getCmp('tabs').add({
+        //            title    : 'About',
+        //            dockedItems: [{
+        //                loader: {
+        //                 url: 'app/html/about.html',
+        //                 autoLoad: true
+        //                }, //для примера добавил html страницу в добавляемую tab
+        //                          }],
+        //            closable : true
+        //        });
             
-        }            
-        },'-',{          
-            text: 'Contacts',
-            width: 55,
-			handler: function (num) {           
-                Ext.getCmp('tabs').add({
-                    title    : 'Contacts', //контакты
-                    dockedItems: [{
-                        loader: {
-                         url: 'app/html/contacts.html',
-                         autoLoad: true
-                        }, //для примера добавил html в добавляемую tab
-                                  }],
-                    closable : true
-                });
+        //}            
+        //},'-',{          
+        //    text: 'Contacts',
+        //    width: 55,
+		//	handler: function (num) {           
+        //        Ext.getCmp('tabs').add({
+        //            title    : 'Contacts', //контакты
+        //            dockedItems: [{
+        //                loader: {
+        //                 url: 'app/html/contacts.html',
+        //                 autoLoad: true
+        //                }, //для примера добавил html в добавляемую tab
+        //                          }],
+        //            closable : true
+        //        });
             
-        }            
-        }, '->', {
+        //}            
+		    //}
+            ,'->', {
             text: 'Admin',
             disabled: true,
             id: 'adminbtn',
