@@ -1,6 +1,6 @@
 Ext.define('ExtMVC.controller.Account', {
     extend: 'Ext.app.Controller',
-
+    //аккаунт контройлер
     stores: ['Account', 'AllAccount'],
     models: ['Account'],
 
@@ -33,18 +33,11 @@ Ext.define('ExtMVC.controller.Account', {
                 click: this.updateItem
             },
 
-            //'allaccountGrid dataview': {
-            //    itemdblclick: this.editDiscount
-            //},
-            //'discountform button[action=save]': {
-            //    click: this.updateDiscount
-            //}
-            
         });
     },
 
    
-
+    //добвление адреса аккаунту
     editItem: function (grid, record) {
         var edit = Ext.create('ExtMVC.view.login.Formula').show();
         if (record) {
@@ -67,31 +60,6 @@ Ext.define('ExtMVC.controller.Account', {
 
         win.close();
         this.getAccountStore().sync();
-    },
+    }
 
-    //editDiscount: function (grid, record) {
-    //    var edit = Ext.create('ExtMVC.view.login.AddDiscount').show();
-    //    if (record) {
-    //        edit.down('form').loadRecord(record);
-    //    }
-    //},
-
-    //updateDiscount: function (button, event) {
-
-    //    var win = button.up('window'),
-    //    form = win.down('form').getForm();
-    //    record = form.getRecord(),
-    //    values = form.getValues();
-
-    //    if (form.isValid()) {
-
-    //        record.set(values);
-    //    }
-    //    else Ext.Msg.alert('Invalid form!', 'Please try again.');
-
-    //    win.close();
-    //    this.getAllAccountStore().sync();
-    //}
-
-	
 });

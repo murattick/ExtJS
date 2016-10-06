@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.login.RegisterWindow', {
+Ext.define('ExtMVC.view.login.RegisterWindow', { //модалка для регистрации
 	extend: 'Ext.window.Window',
 	alias: 'widget.registerWindow',
 	id: 'registerWindow',
@@ -17,7 +17,7 @@ Ext.define('ExtMVC.view.login.RegisterWindow', {
     },
 	
 	dockedItems: [{
-		xtype: 'registerform',                        
+		xtype: 'registerform',       //подгрузка формы регистрации                 
                     }],
    
 });

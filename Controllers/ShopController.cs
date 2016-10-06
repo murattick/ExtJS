@@ -10,6 +10,7 @@ namespace ExtJSMVC.Controllers
 {
     public class ShopController : Controller
     {
+        //подключение репозитория
         private UnitOfWork unitOfWork = new UnitOfWork();
 
         //вывод всех товаров
@@ -20,9 +21,14 @@ namespace ExtJSMVC.Controllers
             {
                 start = start.HasValue ? start.Value : 0;
                 limit = limit.HasValue ? limit.Value : Int32.MaxValue;
+
+                //вычисляется количество товаров
                 int cnt = unitOfWork.ItemRepository.Get().Count();
+
+                //сам запрос на вывод товаров
                 var recs = unitOfWork.ItemRepository.Get().
                     Skip(start.Value).Take(limit.Value).ToList();
+
                 return Json(new
                 {
                     Data = recs,
@@ -31,7 +37,7 @@ namespace ExtJSMVC.Controllers
             }
         }
 
-        //вывод всех товаров для адмниа
+        //вывод всех товаров для администратора
         // GET: /Store/
         [Authorize(Roles = "Admin")]
         public JsonResult GetAdminGrid(int? start, int? limit)
@@ -39,9 +45,14 @@ namespace ExtJSMVC.Controllers
             {
                 start = start.HasValue ? start.Value : 0;
                 limit = limit.HasValue ? limit.Value : Int32.MaxValue;
+
+                //вычисляется количество товаров
                 int cnt = unitOfWork.ItemRepository.Get().Count();
+
+                    //запрос на вывод товаров
                 var recs = unitOfWork.ItemRepository.Get().
                     Skip(start.Value).Take(limit.Value).ToList();
+
                 return Json(new
                 {
                     Data = recs,
@@ -50,7 +61,7 @@ namespace ExtJSMVC.Controllers
             }
         }
 
-        //обновление товара
+        //обновление товара, только для администратора
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public JsonResult Update(Item data)
@@ -61,16 +72,17 @@ namespace ExtJSMVC.Controllers
             {
 
                 {
+                    //выборка
                     var rec = unitOfWork.ItemRepository.Get(a => a.ItemID == data.ItemID).
                         FirstOrDefault();
-
+                    //данные
                     rec.Title = data.Title;
                     rec.Code = data.Code;
                     rec.Category = data.Category;
                     rec.Brand = data.Brand;
                     rec.Price = data.Price;
-                    //rec.ItemArtUrl = data.ItemArtUrl;
 
+                    //сохранение 
                     unitOfWork.Save();
                     success = true;
                     message = "Update method called successfully";
@@ -85,7 +97,7 @@ namespace ExtJSMVC.Controllers
             });
         }
 
-        //доббавление товара
+        //доббавление товара, только для администратора
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public JsonResult Create(Item data)
@@ -95,9 +107,9 @@ namespace ExtJSMVC.Controllers
 
 
             {
-
+                //добавление
                 unitOfWork.ItemRepository.Insert(data);
-
+                //сохранение
                 unitOfWork.Save();
                 success = true;
                 message = "add method called successfully";
@@ -112,7 +124,7 @@ namespace ExtJSMVC.Controllers
             });
         }
 
-        //удаление товара
+        //удаление товара, только дял администратора
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public JsonResult Delete(Item data)
@@ -121,12 +133,14 @@ namespace ExtJSMVC.Controllers
             string message = "no record found";
 
             {
+                //выборка
                 Item item = unitOfWork.ItemRepository.Get(a => a.ItemID == data.ItemID).
                     FirstOrDefault();
 
-                
+                //удаление 
                 unitOfWork.ItemRepository.Delete(item);
 
+                //сохранение
                 unitOfWork.Save();
                 success = true;
                 message = "Update method called successfully";
@@ -141,6 +155,7 @@ namespace ExtJSMVC.Controllers
             });
         }
 
+        //отключение репозитория
         protected override void Dispose(bool disposing)
         {
             unitOfWork.Dispose();

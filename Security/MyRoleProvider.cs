@@ -6,12 +6,14 @@ using System.Web;
 using System.Web.Security;
 using CustomMembership.Models;
 
+//создание кастомного провайдера ролей от стандартного
 namespace ExtJSMVC.Security
 {
     public class MyRoleProvider : RoleProvider
     {
 
         private string _ApplicationName;
+        //подключение репозитория
         private UserRepository userRepo = new UserRepository();
 
         public override void Initialize(string name, NameValueCollection config)

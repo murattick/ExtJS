@@ -1,4 +1,5 @@
-Ext.define('ExtMVC.view.cart.CartGrid' ,{
+//грид корзины
+Ext.define('ExtMVC.view.cart.CartGrid', {
     extend: 'Ext.grid.Panel',
     alias : 'widget.cartGrid',
 
@@ -12,13 +13,13 @@ Ext.define('ExtMVC.view.cart.CartGrid' ,{
     loadingText: 'Loading list...',
 
     columns: [
-    { xtype: 'rownumberer' },
+    { xtype: 'rownumberer' }, //номер строки
     { header: 'ItemID', width: 170, dataIndex: 'ItemID', flex: 1 },
     { header: 'Title', width: 170, dataIndex: 'Title', flex: 1 },
     { text: 'Code', width: 170, dataIndex: 'Code', flex: 1 },
-    { text: 'Price', width: 170, dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney},
+    { text: 'Price', width: 170, dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney}, //денежное поле
     { text: 'Count', width: 170, dataIndex: 'Count', flex: 1 },
-    {
+    { //код вычисления итоговой стоимости товара
         id: 'cost',
         header: 'Cost',
         width: 75,
@@ -47,7 +48,7 @@ Ext.define('ExtMVC.view.cart.CartGrid' ,{
         width: 50,
         text: 'Action',
         items: [{
-            icon: 'Content/Images/Delete.gif',  // Use a URL in the icon config
+            icon: 'Content/Images/Delete.gif',  // удаление из корзины
             
             tooltip: 'Delete',
             handler: function (grid, rowIndex, colIndex) {
@@ -61,7 +62,7 @@ Ext.define('ExtMVC.view.cart.CartGrid' ,{
         width: 50,
         text: 'Action',
         items: [{
-            icon: 'Content/Images/cart.png',  // Use a URL in the icon config
+            icon: 'Content/Images/cart.png',  // создать заказ
             tooltip: 'AddToOrder',
             handler: function (grid, rowIndex, colIndex) {
                 var rec = grid.getStore().getAt(rowIndex);
@@ -74,31 +75,5 @@ Ext.define('ExtMVC.view.cart.CartGrid' ,{
             }
         }]
     }
-    ],
-
-
-    initComponent: function () {
-        var me = this;
-
-        this.dockedItems = [{
-            xtype: 'toolbar',
-            items: [
-            {
-                iconCls: 'remove',
-                text: 'Delete',
-                handler: function () {
-
-                    var selection = me.getView().getSelectionModel().getSelection();
-                    var store = me.getView().getStore();
-                    if (selection.length) {
-                        store.remove(selection);           
-                    }
-                    else
-                        Ext.Msg.alert('Status', 'Please select at least one record to delete!');
-                }
-            }]
-        }];
-
-        this.callParent(arguments);
-    }
+    ]
 });

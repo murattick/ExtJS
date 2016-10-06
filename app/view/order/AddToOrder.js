@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.order.AddToOrder', {
+Ext.define('ExtMVC.view.order.AddToOrder', { //модалка для создания заказа
     extend: 'Ext.window.Window',
     alias: 'widget.orderForm',
 
@@ -67,25 +67,23 @@ Ext.define('ExtMVC.view.order.AddToOrder', {
                         minValue: 1,
                         maskRe: /[1-9]/i //только числа
                     },
-                    {
-                        xtype: 'datefield',
-                        altFormats: 'd-m-Y',
-                        name: 'OrderDate',
-                        fieldLabel: 'OrderDate',
-                        value: new Date(),  // defaults to today
-                        maxValue: new Date(),
-                        allowBlank: false,
-						readOnly: true
-                    }, {
-                        xtype: 'datefield',
-                        altFormats: 'd-m-Y',
-                        name: 'ChangeStatus',
-                        fieldLabel: 'ChangeStatus',
-                        value: new Date(),  // defaults to today
-                        maxValue: new Date(),
-                        allowBlank: false,
-                        readOnly: true
-                    }, 
+                    //{
+                    //    xtype: 'datefield',
+                    //    name: 'OrderDate',
+                    //    fieldLabel: 'OrderDate',
+                    //    value: new Date(),  // defaults to today
+                    //    maxValue: new Date(),
+                    //    allowBlank: false,
+					//	readOnly: true
+                    //}, {
+                    //    xtype: 'datefield',
+                    //    name: 'ChangeStatus',
+                    //    fieldLabel: 'ChangeStatus',
+                    //    value: new Date(),  // defaults to today
+                    //    maxValue: new Date(),
+                    //    allowBlank: false,
+                    //    readOnly: true
+                    //}, 
                     {
                         xtype: 'textfield',
                         name: 'Status',

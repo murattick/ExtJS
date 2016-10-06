@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="Хранилище CustomRoleAndMembershipDB" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="RoleName" Nullable="false" MaxLength="256" Type="nvarchar" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="RoleId" Nullable="false" Type="uniqueidentifier" />
+    <Property Name="UserId" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Code" MaxLength="20" Type="nvarchar" />
+    <Property Name="Discount" Type="int" />
+    <Property Name="UserName" Nullable="false" MaxLength="20" Type="nvarchar" />
+    <Property Name="Email" Nullable="false" MaxLength="100" Type="nvarchar" />
+    <Property Name="FirstName" MaxLength="256" Type="nvarchar" />
+    <Property Name="LastName" MaxLength="256" Type="nvarchar" />
+    <Property Name="Address" MaxLength="256" Type="nvarchar" />
+    <Property Name="City" MaxLength="256" Type="nvarchar" />
+    <Property Name="State" MaxLength="256" Type="nvarchar" />
+    <Property Name="PostalCode" MaxLength="256" Type="nvarchar" />
+    <Property Name="Country" MaxLength="256" Type="nvarchar" />
+    <Property Name="Phone" MaxLength="256" Type="nvarchar" />
+    <Property Name="Password" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="PasswordSalt" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="Comments" MaxLength="256" Type="nvarchar" />
+    <Property Name="CreatedDate" Nullable="false" Type="datetime" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastLoginDate" Nullable="false" Type="datetime" />
+    <Property Name="LastLoginIp" MaxLength="40" Type="nvarchar" />
+    <Property Name="IsActivated" Nullable="false" Type="bit" />
+    <Property Name="IsLockedOut" Nullable="false" Type="bit" />
+    <Property Name="LastLockedOutDate" Nullable="false" Type="datetime" />
+    <Property Name="LastLockedOutReason" MaxLength="256" Type="nvarchar" />
+    <Property Name="NewPasswordKey" MaxLength="128" Type="nvarchar" />
+    <Property Name="NewPasswordRequested" Type="datetime" />
+    <Property Name="NewEmail" MaxLength="100" Type="nvarchar" />
+    <Property Name="NewEmailKey" MaxLength="128" Type="nvarchar" />
+    <Property Name="NewEmailRequested" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_UserRole_Roles">
+    <End Type="Self.Roles" Multiplicity="1" Role="Roles" />
+    <End Type="Self.UserRole" Multiplicity="*" Role="UserRole" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Users">
+    <End Type="Self.Users" Multiplicity="1" Role="Users" />
+    <End Type="Self.UserRole" Multiplicity="*" Role="UserRole" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CustomRoleAndMembershipDBContainer">
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_UserRole_Roles" Association="Self.FK_UserRole_Roles">
+      <End EntitySet="Roles" Role="Roles" />
+      <End EntitySet="UserRole" Role="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Users" Association="Self.FK_UserRole_Users">
+      <End EntitySet="Users" Role="Users" />
+      <End EntitySet="UserRole" Role="UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

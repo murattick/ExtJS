@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.item.AdminItemGrid', {
+Ext.define('ExtMVC.view.item.AdminItemGrid', { //грид админа
         extend: 'Ext.grid.Panel',
         alias: 'widget.adminitemgrid',
 
@@ -22,7 +22,7 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', {
                    width: 50,
                    text: 'Action',
                    items: [{
-                       icon: 'Content/Images/Cart.png',  // Use a URL in the icon config
+                       icon: 'Content/Images/Cart.png',  // добавит в корзину
                        tooltip: 'AddToCart',
                        handler: function (grid, rowIndex, colIndex) {
                            var rec = grid.getStore().getAt(rowIndex);
@@ -39,15 +39,14 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', {
             
             this.dockedItems = [{
                 xtype: 'toolbar',
-                items: [{
+                items: [{ //кнопка добавления
                     itemId: 'add',
                     text: 'Add',
                     action: 'add'
-                }, '-', {
+                }, '-', { //кнопка удаления
                     text: 'Delete',
-                    //action: 'delete'
 					itemId: 'delete' 
-                }, '-', {
+                }, '-', { //поиск
                     xtype: 'textfield',
                     emptyText: 'Search for Title or Category',
                     width: 170,
@@ -68,7 +67,7 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', {
                             }
                         }
                     }
-                }, '->', {
+                }, '->', { //открывание новой таб с заказами
                     text: 'Grid Order',
                     width: 70,
                     handler: function (num) {
@@ -81,7 +80,7 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', {
                         });
                     }
                 },'-',{
-            text: 'All Account',
+            text: 'All Account', //открывавние табки с аккаунтами
             handler: function (num) {
                 Ext.getCmp('tabs').add({
                     title: 'All account',

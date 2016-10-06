@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 
+//внесены изминения в класс регистрации
 namespace ExtJSMVC.Models
 {
     public class UsersContext : DbContext

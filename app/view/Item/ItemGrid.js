@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.item.ItemGrid', {
+Ext.define('ExtMVC.view.item.ItemGrid', { //грид товаров
         extend: 'Ext.grid.Panel',
         alias: 'widget.itemgrid',
 
@@ -20,7 +20,7 @@ Ext.define('ExtMVC.view.item.ItemGrid', {
                    xtype: 'actioncolumn',
                    width: 50,
                    text: 'Action',
-                   items: [{
+                   items: [{ //добавление товара в корзину
                        icon: 'Content/Images/Cart.png',  // Use a URL in the icon config
                        tooltip: 'AddToCart',
                        handler: function (grid, rowIndex, colIndex) {
@@ -36,20 +36,21 @@ Ext.define('ExtMVC.view.item.ItemGrid', {
               
             ];
             
-            this.dockedItems = [{
+            var GridFilter1 = this.dockedItems = [{ //поиск
                 xtype: 'toolbar',
-                items: [{
+                items: [{                    
                     xtype: 'textfield',
                     emptyText: 'Search for Title or Category',
                     width: 170,
                     listeners: {
                         change: function (field, newValue, oldValue, options) {
+                            id: 'GridFilter';
                             var grid = me;
                             grid.store.clearFilter();
 
-
                             if (newValue) {
                                 var matcher = new RegExp(Ext.String.escapeRegex(newValue), "i");
+                                id: 'matcher';
                                 grid.store.filter({
                                     filterFn: function (record) {
                                         return matcher.test(record.get('Title')) ||

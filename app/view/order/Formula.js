@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.order.Formula', {
+Ext.define('ExtMVC.view.order.Formula', { //модалка для редактирования заказа
     extend: 'Ext.window.Window',
     alias : 'widget.updateForm',
 
@@ -70,16 +70,17 @@ Ext.define('ExtMVC.view.order.Formula', {
                         fieldLabel: 'Price',
 						readOnly: true,
 						renderer: Ext.util.Format.usMoney
-                    }, {
-                        xtype: 'datefield',
-                        altFormats: 'd.m.Y',
-                        name: 'ChangeStatus',
-                        fieldLabel: 'ChangeStatus',
-                        value: new Date(),  // defaults to today
-                        maxValue: new Date(),
-                        allowBlank: false,
-                        readOnly: true
-                    }
+                        },
+                        //{
+                    //    xtype: 'datefield',
+                    //    altFormats: 'd.m.Y',
+                    //    name: 'ChangeStatus',
+                    //    fieldLabel: 'ChangeStatus',
+                    //    value: new Date(),  // defaults to today
+                    //    maxValue: new Date(),
+                    //    allowBlank: false,
+                    //    readOnly: true
+                    //}
                     
                 ]
             }

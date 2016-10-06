@@ -1,3 +1,4 @@
+//модель заказов
 Ext.define('ExtMVC.model.Order', {
     extend: 'Ext.data.Model',
     idProperty: 'OrderID',
@@ -10,8 +11,8 @@ Ext.define('ExtMVC.model.Order', {
         { name: 'Status', type: 'string' },
         { name: 'Count', type: 'int' },
         { name: 'Price', type: 'int' },
-        { name: 'OrderDate', type: 'date'},
-        { name: 'ChangeStatus', type: 'date' },
+        { name: 'OrderDate', type: 'date', dateFormat: 'MS' },
+        { name: 'ChangeStatus', type: 'date', dateFormat: 'MS' },
         { name: 'UserName', type: 'string' }
     ],
 

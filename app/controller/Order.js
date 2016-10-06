@@ -1,10 +1,10 @@
 Ext.define('ExtMVC.controller.Order', {
     extend: 'Ext.app.Controller',
-
+    //контройлер заказов
     stores: ['Order', 'TrackOrder', 'AllAccount'],
     models: ['Order', 'Account' ],
 
-    views: ['order.TrackOrder', 'order.OrderForm', 'order.OrderGrid', 'order.AddToOrder', 'order.Formula', 'order.OrderUser', 
+    views: ['order.TrackOrder', 'order.OrderGrid', 'order.AddToOrder', 'order.Formula', 'order.OrderUser', 
         'menu.TopMenu',
         'item.TabPanel', 'item.AdminItemGrid',
         'cart.CartGrid', ],
@@ -36,9 +36,6 @@ Ext.define('ExtMVC.controller.Order', {
             'orderGrid dataview': {
                 itemdblclick: this.editItem
             },
-			'cartGrid button[action=CreateOrder]': {
-            click: this.Order
-			},
 			'updateForm button[action=save]': {
                 click: this.updateItem
             },
@@ -53,25 +50,8 @@ Ext.define('ExtMVC.controller.Order', {
 			} 
         });
     },
-
-    Order: function (button) {
-        var grid = this.getCartGrid();
-        var store = this.getStore('Order');
-        var selection = grid.getSelectionModel().getSelection();
-        
-        if (selection.length) {
-            selection = Ext.create('ExtMVC.model.Order');
-            
-            store.add(selection);
-            Ext.Msg.alert('Status', 'Complite. Order added!');
-        }
-        else
-            Ext.Msg.alert('Status', 'Please select at least one record to create order!');
-        
-        this.getOrderStore().sync();
-        
-
-    },
+    //добавление заказа
+    
     PostOrder: function (button) {
         var grid = this.getCartGrid();
         var win = button.up('window'),
@@ -98,6 +78,7 @@ Ext.define('ExtMVC.controller.Order', {
         this.getOrderStore().sync();
     },
 
+    //редактирование заказа
     editItem: function (grid, record) {
         var edit = Ext.create('ExtMVC.view.order.Formula').show();
 
@@ -123,6 +104,7 @@ Ext.define('ExtMVC.controller.Order', {
         this.getOrderStore().sync();
     },
 
+    //удаление заказа
     deleteItem: function (button, event) {
         Ext.Msg.confirm("Confirmation", "Do you want to Delete Order?", function (btnText) {
             if (btnText === "no") {

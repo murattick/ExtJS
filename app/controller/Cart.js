@@ -1,6 +1,6 @@
 Ext.define('ExtMVC.controller.Cart', {
     extend: 'Ext.app.Controller',
-
+    //контройлер корзины
     stores: ['Cart', 'Shop', 'Order'],
     models: ['Cart', 'Item'],
 
@@ -49,7 +49,7 @@ Ext.define('ExtMVC.controller.Cart', {
 			} 
         });
     },
-
+    //добавление в корзину
     addItem: function (grid, record) {
         var add = Ext.create('ExtMVC.view.cart.AddToCart').show();
 
@@ -79,7 +79,7 @@ Ext.define('ExtMVC.controller.Cart', {
         win.close();
         
     },
-
+    //редатирование в корзине
     editItem: function (grid, record) {
         var edit = Ext.create('ExtMVC.view.cart.Formula').show();
 
@@ -104,39 +104,6 @@ Ext.define('ExtMVC.controller.Cart', {
         win.close();
         this.getCartStore().sync();
 
-    },
-    deleteItem: function (button) {
-        Ext.Msg.confirm("Confirmation", "Do you want to Delete Item ?", function (btnText) {
-            if (btnText === "no") {
-                //функция для нажатия нет
-            }
-            else if (btnText === "yes") {
-
-                var grid = this.getCartGrid(),
-                record = grid.getSelectionModel().getSelection()[0],
-                store = this.getCartStore();
-
-                store.remove(record);
-                this.getCartStore().sync();
-            }
-        }, this);          
-    },
-
-	onDeleteClick: function () { 
-
-		var CartGrid = this.getCartGrid(); 
-		var CartStore = this.getCartStore(); 
-
-		//delete selected rows if selModel is checkboxmodel 
-		var selectedRows = CartGrid.getSelectionModel().getSelection(); 
-
-		
-		if (selectedRows.length) 
-		CartStore.remove(selectedRows); 
-        
-		
-		else 
-		Ext.Msg.alert('Status', 'Please select at least one record to delete!'); 
-		 this.getCartStore().sync();
-		},
+    }
+    
 });

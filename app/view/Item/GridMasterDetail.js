@@ -10,13 +10,13 @@ Ext.define('ExtMVC.view.item.GridMasterDetail' ,{
 
     // override initComponent
         initComponent: function () {
-            this.items = [{
+            this.items = [{ //добавление itemgrid
                 xtype: 'itemgrid',
                 itemId: 'gridPanel',
                 region: 'north',
                 height: 380,
                 split: true
-            }, {
+            }, { //добавление griddetail
                 xtype: 'griddetail',
                 itemId: 'detailPanel',
                 region: 'center'

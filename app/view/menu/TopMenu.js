@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.menu.TopMenu', {
+Ext.define('ExtMVC.view.menu.TopMenu', { //верхнее меню
     extend: 'Ext.menu.Menu',
     alias: 'widget.topMenu',
     floating: false, // usually you want this set to True (default)
@@ -9,7 +9,6 @@ Ext.define('ExtMVC.view.menu.TopMenu', {
         xtype: 'toolbar',
         dock: 'top',
         items: [ {
-          //  xtype: 'splitbutton',
             text: 'All Items',
 			width: 60,
 			handler: function (num) {           
@@ -22,7 +21,8 @@ Ext.define('ExtMVC.view.menu.TopMenu', {
                     closable: true,
                     activeTab: true,
                 });
-            
+                var AllItemsTab = Ext.getStore('Shop').load(); //отфильтрован store по категории аудио
+                AllItemsTab.clearFilter();
         }
         },'-' // <- эта хрень разделяет кнопки
 		,{          
@@ -34,8 +34,9 @@ Ext.define('ExtMVC.view.menu.TopMenu', {
                 Ext.getCmp('tabs').add({
                     title: 'Cart',
                     dockedItems: [{
-                        xtype: 'cartGrid' //для примера добавил grid карзины в добавляемую tab
-                                  }],
+                        xtype: 'cartGrid' //для примера добавил grid корзины в добавляемую tab
+                    }],
+                    activeTab: true,
                     closable: true
 
                 });
@@ -63,7 +64,7 @@ Ext.define('ExtMVC.view.menu.TopMenu', {
 		        Ext.getCmp('tabs').add({
 		            title: 'My account',
 		            dockedItems: [{
-		                xtype: 'accountGrid'
+		                xtype: 'accountGrid' //грид своего аккунта
 		            }],
 		            closable: true
 		        });
@@ -89,7 +90,7 @@ Ext.define('ExtMVC.view.menu.TopMenu', {
             width: 55,
 			handler: function (num) {           
                 Ext.getCmp('tabs').add({
-                    title    : 'Contacts',
+                    title    : 'Contacts', //контакты
                     dockedItems: [{
                         loader: {
                          url: 'app/html/contacts.html',
@@ -108,7 +109,7 @@ Ext.define('ExtMVC.view.menu.TopMenu', {
                 Ext.getCmp('tabs').add({
                     title: 'Admin',
                     dockedItems: [{
-                        xtype: 'adminitemgrid'
+                        xtype: 'adminitemgrid' //админка
                     }],
                     closable: true
                 });
@@ -118,18 +119,18 @@ Ext.define('ExtMVC.view.menu.TopMenu', {
             text: 'Autorization',
             menu: {
                 items: [{
-                    text: 'Login',
+                    text: 'Login', //авторизация
                     action: 'login',
                     id: 'login',
                 }, {
-                    text: 'Register',
+                    text: 'Register', //регистрация
                     action: 'register',
                     id: 'register',
                     handler: function () {
                         Ext.Msg.alert('Внимание!!!', 'Для оформления заказа не забудте добавить Ваш адресс.');
                     }
                 }, '-', {
-                    text: 'Logout',
+                    text: 'Logout', //выход из системы
                     id: 'logout',
                     //disabled: true,
                     handler: function (button, event) {

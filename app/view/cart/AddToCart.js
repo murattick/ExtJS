@@ -1,3 +1,4 @@
+//модалка на добавление в корзину
 Ext.define('ExtMVC.view.cart.AddToCart', {
     extend: 'Ext.window.Window',
     alias: 'widget.itemform',

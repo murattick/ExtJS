@@ -6,22 +6,27 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+//контройлер заказов
+
 namespace ExtJSMVC.Controllers
 {
     public class CheckoutController : Controller
-    {
+    { 
+        //подключение репозитория
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        //вывод всех заказов
+        //вывод всех заказов, только для администратора
         [Authorize(Roles = "Admin")]
-        public JsonResult Get(int? start, int? limit)
+        public JsonResult Get(int? start, int? limit, Order order)
         {
             {
                 start = start.HasValue ? start.Value : 0;
                 limit = limit.HasValue ? limit.Value : Int32.MaxValue;
+                //происходит через репозиторий Ордера
                 int cnt = unitOfWork.OrderRepository.Get().Count();
                 var recs = unitOfWork.OrderRepository.Get().
                     Skip(start.Value).Take(limit.Value).ToList();
+                
                 return Json(new
                 {
                     Data = recs,
@@ -41,8 +46,10 @@ namespace ExtJSMVC.Controllers
             string message = "no record found";
            
             {
-
+                //добавление имени авторизированного пользователя в заказ
                 data.UserName = User.Identity.Name;
+                data.OrderDate = DateTime.Now;
+                data.ChangeStatus = DateTime.Now;
                 //сохоранение заказа
                 unitOfWork.OrderRepository.Insert(data);
                 unitOfWork.Save();
@@ -61,7 +68,7 @@ namespace ExtJSMVC.Controllers
 
         }
 
-        //обновление заказа
+        //обновление заказа, только для администратора
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public JsonResult Update(Order data)
@@ -70,7 +77,7 @@ namespace ExtJSMVC.Controllers
             string message = "no record found";
             if (data != null && data.OrderID > 0)
             {
-
+                //обновление по ID заказа
                 {
                     var rec = unitOfWork.OrderRepository.Get(a => a.OrderID == data.OrderID).
                         FirstOrDefault();
@@ -83,6 +90,7 @@ namespace ExtJSMVC.Controllers
                     rec.Code = data.Code;
                     rec.Status = data.Status;
                     rec.OrderDate = data.OrderDate;
+                    rec.ChangeStatus = DateTime.Now;
 
                     unitOfWork.Save();
                     success = true;
@@ -98,7 +106,7 @@ namespace ExtJSMVC.Controllers
             });
         }
 
-        //удаление заказа
+        //удаление заказа, только для администратора
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public JsonResult Delete(Order data)
@@ -106,14 +114,14 @@ namespace ExtJSMVC.Controllers
             bool success = false;
             string message = "no record found";
             
-            
+            //удаление по ID
                 {
                     Order order = unitOfWork.OrderRepository.Get(a => a.OrderID == data.OrderID).
                         FirstOrDefault();
 
 
                     unitOfWork.OrderRepository.Delete(order);
-
+                    //сохранение
                     unitOfWork.Save();
                     success = true;
                     message = "Update method called successfully";
@@ -128,9 +136,11 @@ namespace ExtJSMVC.Controllers
             });
         }
 
+        //удаление совершенного заказа пользователем
+        [Authorize]
         public JsonResult DeleteTrackOrder(Order data)
         {
-
+            //удалить возможно только тогда, когда статус заказа находится в Open
             if (data.Status == "Open")
             {
                 try
@@ -138,12 +148,12 @@ namespace ExtJSMVC.Controllers
                     Order order = unitOfWork.OrderRepository.Get(a => a.OrderID == data.OrderID).
                         FirstOrDefault();
 
-
+                    //удаление
                     unitOfWork.OrderRepository.Delete(order);
-
+                    //сохранение
                     unitOfWork.Save();
                 }
-
+                    //после выполнения система даст сообщение о успешном/не успешном выполнении удаления
                 catch (Exception ex)
             {
                 return Json(new { errorMessage = ex.Message});
@@ -157,7 +167,7 @@ namespace ExtJSMVC.Controllers
             });
         }
 
-        //track order for user name
+        //отслеживание заказа пользователем по авторизованному имени
         [Authorize]
         public JsonResult OrderUser(int? start, int? limit)
         {
@@ -165,9 +175,9 @@ namespace ExtJSMVC.Controllers
                 start = start.HasValue ? start.Value : 0;
                 limit = limit.HasValue ? limit.Value : Int32.MaxValue;
 
-
+            //выборка количества заказов 
                 int cnt = unitOfWork.OrderRepository.Get().Count();
-
+            //выбираются заказы совершенные данным авторизированным пользователем.
                 var recs = unitOfWork.OrderRepository.Get(o => o.UserName == User.Identity.Name).
                     Skip(start.Value).Take(limit.Value).FirstOrDefault();
 
@@ -180,6 +190,7 @@ namespace ExtJSMVC.Controllers
             
         }
 
+        //отключение репозитория
         protected override void Dispose(bool disposing)
         {
             unitOfWork.Dispose();

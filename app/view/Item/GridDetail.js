@@ -1,6 +1,5 @@
 Ext.define('ExtMVC.view.item.GridDetail', {
     extend: 'Ext.Panel',
-    // register the App.BookDetail class with an xtype of bookdetail
     alias: 'widget.griddetail',
     // add tplMarkup as a new property
     tpl: [

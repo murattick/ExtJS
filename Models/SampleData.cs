@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using ExtJSMVC.Models;
 
+//добавления тестовых данных в таблицу товаров
 namespace ExtJSMVC.Models
 {
     public class SampleData : DropCreateDatabaseIfModelChanges<StoreContext>

@@ -1,4 +1,4 @@
-var loginForm = Ext.define('ExtMVC.view.login.Login', {
+var loginForm = Ext.define('ExtMVC.view.login.Login', { //форма логина
     extend: 'Ext.form.Panel',
 	alias: 'widget.loginform',
     width: 500,

@@ -1,7 +1,8 @@
+//стор аккунта
 Ext.define('ExtMVC.store.Account', {
     extend: 'Ext.data.Store',
     model: 'ExtMVC.model.Account',
-    autoLoad: true,
+    autoLoad: false,
     pageSize: 10,
     autoLoad: { start: 0, limit: 1 },
 

@@ -6,7 +6,7 @@ Ext.define('ExtMVC.controller.Item', {
 
     views: ['item.Formula', 'item.Add', 'item.TabPanel', 'item.AdminItemGrid',
             'item.ItemGrid', 'item.GridDetail', 'item.GridMasterDetail',
-            'menu.TopMenu', 
+            'menu.TopMenu', 'menu.LMenu',
             'cart.CartGrid', 'cart.AddToCart'
     ],
 

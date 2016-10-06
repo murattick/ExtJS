@@ -7,11 +7,12 @@ using System.Collections.Specialized;
 using ExtJSMVC.Models;
 using CustomMembership.Models;
 
+//создание кастомного провайдера от стандарого
 namespace ExtJSMVC.Security
 {
     public class MyMembershipProvider : MembershipProvider
     {
-        //DB
+        //DB подключение репозитория
         private UserRepository _db;
         public UserRepository db
         {

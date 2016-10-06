@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.order.OrderGrid' ,{
+Ext.define('ExtMVC.view.order.OrderGrid' ,{ //грид всех заказов
     extend: 'Ext.grid.Panel',
     alias : 'widget.orderGrid',
     itemId: 'orderGrid',
@@ -19,14 +19,14 @@ Ext.define('ExtMVC.view.order.OrderGrid' ,{
 	{ header: 'Count', width: 170, dataIndex: 'Count', flex: 1 },
 	{ header: 'Status', width: 170, dataIndex: 'Status', flex: 1 },
     {
-        header: 'OrderDate', width: 170, dataIndex: 'OrderDate', xtype: 'datecolumn',
-        format: 'd/m/Y', flex: 1
+        header: 'OrderDate', width: 170, dataIndex: 'OrderDate', xtype:'datecolumn',
+        renderer: Ext.util.Format.dateRenderer('d/m/Y'), flex: 1
     },
 {
     header: 'ChangeStatus', width: 170, dataIndex: 'ChangeStatus', xtype: 'datecolumn',
-    format: 'd/m/Y', flex: 1
+    renderer: Ext.util.Format.dateRenderer('d/m/Y'), flex: 1
 },
-    {
+    { //вывод итоговой стоимости закза 
         id: 'Total',
         header: 'Total',
         width: 75,
@@ -55,13 +55,13 @@ Ext.define('ExtMVC.view.order.OrderGrid' ,{
             
         this.dockedItems = [{
             xtype: 'toolbar',
-            items: [{
+            items: [{            //удаление зааза
                 text: 'Delete',
                 action: 'delete',
                 itemId: 'deleteOrder' 
             },'-', {
                 xtype: 'textfield',
-                emptyText: 'Search',
+                emptyText: 'Search',        //поиск
                 listeners: {
                     change: function (field, newValue, oldValue, options) {
                         var grid = me;

@@ -8,8 +8,11 @@ namespace ExtJSMVC.DAL
 {
     public class UnitOfWork : IDisposable
     {
+        //подключение контекста базы данных
         private StoreContext context = new StoreContext();
+        //создание репозитория для товара
         private GenericRepository<Item> itemRepository;
+        //создание репозитория для заказа
         private GenericRepository<Order> orderRepository;
 
 
@@ -37,6 +40,7 @@ namespace ExtJSMVC.DAL
             }
         }
 
+        //метод сохранения
         public void Save()
         {
             context.SaveChanges();
@@ -44,6 +48,7 @@ namespace ExtJSMVC.DAL
 
         private bool disposed = false;
 
+        //метод отключения репозиторя
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed)

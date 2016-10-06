@@ -1,8 +1,7 @@
 Ext.define('ExtMVC.controller.Login', {
     extend: 'Ext.app.Controller',
-
-    stores: ['Autorization', 'Account'],
-    //models: ['Contact'],
+    //контройлер авторизации
+    stores: ['Account'],
 
     views: ['login.Login', 'login.Register', 'login.LoginWindow', 'login.RegisterWindow', 'login.AccountGrid',
         'menu.TopMenu',
@@ -43,7 +42,7 @@ Ext.define('ExtMVC.controller.Login', {
             }
         });
     },
-
+    //метод для входа в систему
     loginUser: function (menu) {
         var login = Ext.create('ExtMVC.view.login.LoginWindow').show();
 
@@ -57,7 +56,7 @@ Ext.define('ExtMVC.controller.Login', {
 	            loadingText: 'Loading list...';
                 var form = button.up('form').getForm();
                 if(form.isValid()){
-                    //create an AJAX request
+                    //AJAX запрос на вход
          
                     Ext.Ajax.request({
                         waitTitle: 'Please wait...',
@@ -75,6 +74,7 @@ Ext.define('ExtMVC.controller.Login', {
                             Ext.Msg.alert('Login Error', data.errorMessage, Ext.emptyFn);
 
                         },
+                        //после успешной авторизации подгружаются сторы и активируются кнопки меню
                         success: function (response, opts) {
                           
                             var account = Ext.data.StoreManager.get("Account");
@@ -112,7 +112,7 @@ Ext.define('ExtMVC.controller.Login', {
                 }
                 win.close();
             },
-		
+		//мтод для регистрации
     registerUser: function (menu) {
         var reg = Ext.create('ExtMVC.view.login.RegisterWindow').show();
     },
@@ -123,7 +123,7 @@ Ext.define('ExtMVC.controller.Login', {
                                
                 var form = button.up('form').getForm();
                 if(form.isValid()){
-                    //create an AJAX request
+                    //AJAX запрос
 
                     Ext.Ajax.request({
                         waitTitle: 'Please wait...',
@@ -141,6 +141,7 @@ Ext.define('ExtMVC.controller.Login', {
                             Ext.Msg.alert('Login Error', data.errorMessage, Ext.emptyFn);
 
                         },
+                        //после успешной регистрации подгружаются сторы и активируются кнопки
                         success: function (response, opts) {
                             var account = Ext.data.StoreManager.get("Account");
                             var adminShop = Ext.data.StoreManager.get("AdminShop");

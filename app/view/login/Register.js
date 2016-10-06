@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.login.Register', {
+Ext.define('ExtMVC.view.login.Register', { //форма для регистрации
  extend: 'Ext.form.Panel',
  alias: 'widget.registerform',
 

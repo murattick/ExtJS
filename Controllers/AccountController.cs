@@ -31,7 +31,7 @@ namespace ExtJSMVC.Controllers
             return ModelState.SelectMany(x => x.Value.Errors.Select(error => error.ErrorMessage));
         }
 
-        //ппервая регистрация будет выполнена администратором
+        //первая регистрация будет выполнена администратором
         // GET: /Account/Login
 
         [AllowAnonymous]
@@ -45,7 +45,7 @@ namespace ExtJSMVC.Controllers
             return View();
         }
 
-        //
+        //Авторизация
         // POST: /Account/Login
 
         [HttpPost]
@@ -97,7 +97,7 @@ namespace ExtJSMVC.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
+        //Регстрация
         // GET: /Account/Register
 
         [AllowAnonymous]
@@ -106,7 +106,7 @@ namespace ExtJSMVC.Controllers
             return View();
         }
 
-        //
+        //регистрация
         // POST: /Account/Register
 
         [HttpPost]
@@ -120,7 +120,7 @@ namespace ExtJSMVC.Controllers
                 Membership.CreateUser(model.UserName, model.Password, model.Email, passwordQuestion: null, passwordAnswer: null, isApproved: model.IsEmailRegConform, providerUserKey: null, status: out createStatus);
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    if (model.IsEmailRegConform)    //conform registration by email
+                    if (model.IsEmailRegConform)    //conform registration by email не используется в этом проекте
                     {
                         return RedirectToAction("Welcome", "Home");
                     }

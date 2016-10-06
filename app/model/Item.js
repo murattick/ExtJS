@@ -1,3 +1,4 @@
+//модель товара
 Ext.define('ExtMVC.model.Item', {
     extend: 'Ext.data.Model',
     idProperty: 'ItemID',

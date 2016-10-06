@@ -1,9 +1,7 @@
-Ext.define('ExtMVC.view.login.AccountGrid' ,{
+Ext.define('ExtMVC.view.login.AccountGrid' ,{ //грид своего аккаунта
     extend: 'Ext.grid.Panel',
     alias : 'widget.accountGrid',
     requires: ['Ext.toolbar'],
-
-    iconCls: 'icon-grid',
 
     store: 'Account',
     wight: 400,
@@ -16,7 +14,6 @@ Ext.define('ExtMVC.view.login.AccountGrid' ,{
     { header: 'UserId', width: 170, dataIndex: 'UserId', flex: 1 },
     { header: 'Login', width: 170, dataIndex: 'UserName', flex: 1 },
 	{ header: 'Code', width: 170, dataIndex: 'Code', flex: 1 },
-	//{ header: 'Discount %', width: 170, dataIndex: 'Discount', flex: 1 },
     { header: 'FirstName', width: 170, dataIndex: 'FirstName', flex: 1 },
     { header: 'LastName', width: 170, dataIndex: 'LastName', flex: 1 },
 	{ header: 'Address', width: 170, dataIndex: 'Address', flex: 1 },
@@ -28,17 +25,6 @@ Ext.define('ExtMVC.view.login.AccountGrid' ,{
 	{ header: 'Email', width: 170, dataIndex: 'Email', flex: 1 },
 
         ];
-
-        this.dockedItems = [{
-            xtype: 'toolbar',
-            //items: [{
-            //    iconCls:'remove',
-            //    text: 'Delete',
-            //    action: 'delete',
-            //    itemId: 'delete' 
-            //}]
-            
-        }];
 
         this.callParent();
     }

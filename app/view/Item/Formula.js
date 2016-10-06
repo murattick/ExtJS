@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.item.Formula', {
+Ext.define('ExtMVC.view.item.Formula', { // модалка редактирования
     extend: 'Ext.window.Window',
     alias : 'widget.itemform',
 
@@ -46,28 +46,24 @@ Ext.define('ExtMVC.view.item.Formula', {
                         regexText: 'Must be in the format 12-3456-AB78',
                         fieldLabel: 'Code'
                     },
-                    {
-                        xtype: 'radiogroup',
-                        fieldLabel: 'Category',
-                        columns: 2,
-                        vertical: true,
-                        items: [
-                            { boxLabel: 'Audio', name: 'Category', inputValue: 'Audio' },
-                            { boxLabel: 'Flash', name: 'Category', inputValue: 'Flash' },
-                            { boxLabel: 'HDD', name: 'Category', inputValue: 'HDD' },
-                            { boxLabel: 'Laptop', name: 'Category', inputValue: 'Laptop' },
-                            { boxLabel: 'Mause', name: 'Category', inputValue: 'Mause' },
-                            { boxLabel: 'Monitor', name: 'Category', inputValue: 'Monitor' },
-                            { boxLabel: 'Phone', name: 'Category', inputValue: 'Phone' },
-                            { boxLabel: 'Photo', name: 'Category', inputValue: 'Photo' },
-                            { boxLabel: 'TV', name: 'Category', inputValue: 'TV' },
-                            { boxLabel: 'Video', name: 'Category', inputValue: 'Video' },
-                        ]
-                    },
-                    {
-                        xtype: 'textfield',
-                        name : 'Brand',
-                        fieldLabel: 'Brand'
+                     { //вывод из стора списка добавленных категорий
+                         xtype: 'combobox',
+                         fieldLabel: 'Choose Category',
+                         displayField: 'Category',
+                         valueField: 'Category',
+                         store: shop,
+                         name: 'Category',
+                         queryMode: 'local',
+                     },
+                    { //вывод из стора списка добавленных брендов
+                        xtype: 'combobox',
+                        fieldLabel: 'Choose Brand',
+                        displayField: 'Brand',
+                        valueField: 'Brand',
+                        store: shop,
+                        name: 'Brand',
+                        queryMode: 'local',
+
                     },
                     {
                         xtype: 'numberfield',

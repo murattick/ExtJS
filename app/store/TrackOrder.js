@@ -1,7 +1,8 @@
+//стор на отслеживание заказа
 Ext.define('ExtMVC.store.TrackOrder', {
     extend: 'Ext.data.Store',
     model: 'ExtMVC.model.Order',
-    autoLoad: true,
+    autoLoad: false,
     pageSize: 10,
     autoLoad: { start: 0, limit: 10 },
 

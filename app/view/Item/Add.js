@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.item.Add', {
+Ext.define('ExtMVC.view.item.Add', { //модалка на добавление нового товара
     extend: 'Ext.window.Window',
     alias : 'widget.itemform',
     store: 'Shop',
@@ -47,7 +47,7 @@ Ext.define('ExtMVC.view.item.Add', {
                         regexText: 'Must be in the format 12-3456-AB78',
                         fieldLabel: 'Code'
                     },
-                    {  
+                    {  //вывод из стора списка добавленных категорий
                         xtype: 'combobox',
                         fieldLabel: 'Choose Category',
                         displayField: 'Category',
@@ -56,7 +56,7 @@ Ext.define('ExtMVC.view.item.Add', {
                         name: 'Category',
                         queryMode: 'local',
                     },
-                    {
+                    { //вывод из стора добавленных брендов
                         xtype: 'combobox',
                         fieldLabel: 'Choose Brand',
                         displayField: 'Brand',
@@ -70,7 +70,7 @@ Ext.define('ExtMVC.view.item.Add', {
                         xtype: 'numberfield',
                         name: 'Price',
                         fieldLabel: 'Price',
-                        renderer: Ext.util.Format.usMoney
+                        renderer: Ext.util.Format.usMoney //денежный формат
                     }
                 ]
             }

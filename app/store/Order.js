@@ -1,7 +1,7 @@
 Ext.define('ExtMVC.store.Order', {
     extend: 'Ext.data.Store',
     model: 'ExtMVC.model.Order',
-    autoLoad: true,
+    autoLoad: false,
     pageSize: 10,
     autoLoad: { start: 0, limit: 10 },
 

@@ -1,15 +1,15 @@
+//стор корзины
 Ext.define('ExtMVC.store.Cart', {
     extend: 'Ext.data.Store',
     model: 'ExtMVC.model.Cart',
-    autoLoad: true,
+    autoLoad: false,
 
     proxy: {
         type: 'ajax',
         api: {
             read: '/ShoppingCart/Get',
             create: '/ShoppingCart/AddToCart',
-            update: '/ShoppingCart/Update',
-            //destroy: '/ShoppingCart/Delete',
+            update: '/ShoppingCart/Update'
         },
         reader: {
             type: 'json',

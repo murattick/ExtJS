@@ -1,0 +1,98 @@
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\obj\Debug\SenchaDesignerExtension.csprojResolveAssemblyReference.cache
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\SenchaDesignerExtension.dll.config
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\SenchaDesignerExtension.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\SenchaDesignerExtension.pdb
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Antlr3.Runtime.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.Core.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Microsoft.Contracts.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Newtonsoft.Json.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.Helpers.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.Mvc.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.Optimization.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.Razor.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.WebPages.Deployment.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.WebPages.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.WebPages.Razor.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\WebGrease.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\WebMatrix.Data.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\WebMatrix.WebData.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Mono.Math.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.Core.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\EntityFramework.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Newtonsoft.Json.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.Helpers.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.Mvc.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.Razor.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.WebPages.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.WebPages.Deployment.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\System.Web.WebPages.Razor.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\WebMatrix.Data.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\WebMatrix.WebData.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\bin\Mono.Math.xml
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\obj\Debug\SenchaDesignerExtension.dll
+C:\Users\J&L\Desktop\SenchaDesignerExtension1\obj\Debug\SenchaDesignerExtension.pdb
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\SenchaDesignerExtension.dll.config
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\SenchaDesignerExtension.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\SenchaDesignerExtension.pdb
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Antlr3.Runtime.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.Core.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Microsoft.Contracts.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Newtonsoft.Json.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.Helpers.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.Mvc.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.Optimization.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.Razor.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.WebPages.Deployment.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.WebPages.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.WebPages.Razor.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\WebGrease.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\WebMatrix.Data.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\WebMatrix.WebData.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Mono.Math.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.Core.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\EntityFramework.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Newtonsoft.Json.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.Helpers.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.Mvc.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.Razor.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.WebPages.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.WebPages.Deployment.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\System.Web.WebPages.Razor.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\WebMatrix.Data.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\WebMatrix.WebData.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\bin\Mono.Math.xml
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\obj\Debug\SenchaDesignerExtension.csprojResolveAssemblyReference.cache
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\obj\Debug\SenchaDesignerExtension.dll
+C:\Users\J&L\Desktop\extjs cud\SenchaDesignerExtension1\obj\Debug\SenchaDesignerExtension.pdb

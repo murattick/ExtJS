@@ -1,7 +1,8 @@
+//стор на вывод всех аккаунтов
 Ext.define('ExtMVC.store.AllAccount', {
     extend: 'Ext.data.Store',
     model: 'ExtMVC.model.Account',
-    autoLoad: true,
+    autoLoad: false,
     pageSize: 10,
     autoLoad: { start: 0, limit: 10 },
 

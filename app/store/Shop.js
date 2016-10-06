@@ -1,3 +1,4 @@
+//стор на вывод товаров
 Ext.define('ExtMVC.store.Shop', {
     extend: 'Ext.data.Store',
     model: 'ExtMVC.model.Item',

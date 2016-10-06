@@ -1,3 +1,4 @@
+//модель аккаунта
 Ext.define('ExtMVC.model.Account', {
     extend: 'Ext.data.Model',
     idProperty: 'UserId',

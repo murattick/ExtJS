@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.login.Formula', {
+Ext.define('ExtMVC.view.login.Formula', { //добавление адреса к аккаунту
     extend: 'Ext.window.Window',
     alias : 'widget.addressform',
 

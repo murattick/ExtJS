@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.login.LoginWindow', {
+Ext.define('ExtMVC.view.login.LoginWindow', { //модалка для входа в систеу
 	extend: 'Ext.window.Window',
 	alias: 'widget.loginWindow',
 	width: 300,
@@ -15,7 +15,7 @@ Ext.define('ExtMVC.view.login.LoginWindow', {
     },
 	
 	dockedItems: [{
-		xtype: 'loginform',                        
+		xtype: 'loginform',     //подгрузка логин формы                   
                     }],
    
 });

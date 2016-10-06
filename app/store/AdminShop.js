@@ -1,8 +1,9 @@
+//стор административной панели
 Ext.define('ExtMVC.store.AdminShop', {
     extend: 'Ext.data.Store',
     model: 'ExtMVC.model.Item',
 
-    autoLoad: true,
+    autoLoad: false,
     pageSize: 20,
     autoLoad: { start: 0, limit: 20 },
 

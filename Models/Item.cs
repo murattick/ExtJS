@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
+//класс товара
 namespace ExtJSMVC.Models
 {
     public class Item

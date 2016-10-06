@@ -1,9 +1,7 @@
-Ext.define('ExtMVC.view.login.AllAccountGrid' ,{
+Ext.define('ExtMVC.view.login.AllAccountGrid' ,{ //грид вывода всех аккаунтов
     extend: 'Ext.grid.Panel',
     alias : 'widget.allaccountGrid',
     requires: ['Ext.toolbar'],
-
-    iconCls: 'icon-grid',
 
     store: 'AllAccount',
     wight: 400,
@@ -16,7 +14,6 @@ Ext.define('ExtMVC.view.login.AllAccountGrid' ,{
     { header: 'UserId', width: 170, dataIndex: 'UserId', flex: 1 },
     { header: 'Login', width: 170, dataIndex: 'UserName', flex: 1 },
 	{ header: 'Code', width: 170, dataIndex: 'Code', flex: 1 },
-	//{ header: 'Discount %', width: 170, dataIndex: 'Discount', flex: 1 },
     { header: 'FirstName', width: 170, dataIndex: 'FirstName', flex: 1 },
     { header: 'LastName', width: 170, dataIndex: 'LastName', flex: 1 },
 	{ header: 'Address', width: 170, dataIndex: 'Address', flex: 1 },
@@ -33,7 +30,7 @@ Ext.define('ExtMVC.view.login.AllAccountGrid' ,{
             xtype: 'toolbar',
             items: [{
                 xtype: 'textfield',
-                emptyText: 'Search',
+                emptyText: 'Search', //поиск
                 listeners: {
                     change: function (field, newValue, oldValue, options) {
                         var grid = me;

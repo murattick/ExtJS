@@ -11,11 +11,12 @@ using System.Web.Routing;
 using CustomMembership.Models;
 using SenchaDesignerExtension.Models;
 
-
+//репозиторий для Custom Membership Provider 
 namespace CustomMembership.Models
 {
     public class UserRepository
     {
+        //подлключение базы данных
         private CustomMembershipDB _db;
         public CustomMembershipDB db
         {
@@ -201,7 +202,7 @@ namespace CustomMembership.Models
             return Guid.NewGuid().ToString();
         }
 
-        // SMTP GMAIL
+        // SMTP GMAIL отправка письма с подтверждениев регистрации на почту
         public static void SendEmailThroughGmail(string messageTitle, string messageBody, string emailTo)
         {
             SmtpClient client = new SmtpClient();

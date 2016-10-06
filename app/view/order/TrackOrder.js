@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.order.TrackOrder' ,{
+Ext.define('ExtMVC.view.order.TrackOrder' ,{ //грид для отслеживание заказа
     extend: 'Ext.grid.Panel',
     alias : 'widget.trackOrderGrid',
     requires: ['Ext.toolbar.Paging'],
@@ -17,9 +17,9 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{
 	{ text: 'Count', width: 170, dataIndex: 'Count', flex: 1 },
 	{ text: 'Status', width: 170, dataIndex: 'Status', flex: 1 },
     { text: 'ItemCode', width: 170, dataIndex: 'Code', flex: 1 },
-    { text: 'OrderDate', width: 170, dataIndex: 'OrderDate', xtype: 'datecolumn', format: 'Y-m-d', flex: 1 },
-    { text: 'ChangeStatus', width: 170, dataIndex: 'ChangeStatus', xtype: 'datecolumn', format: 'Y-m-d', flex: 1 },
-    {
+    { text: 'OrderDate', width: 170, dataIndex: 'OrderDate', xtype: 'datecolumn', renderer: Ext.util.Format.dateRenderer('d/m/Y'), flex: 1 },
+    { text: 'ChangeStatus', width: 170, dataIndex: 'ChangeStatus', xtype: 'datecolumn', renderer: Ext.util.Format.dateRenderer('d/m/Y'), flex: 1 },
+    {                        //вывод итоговой стоимости
         id: 'Total',
         header: 'Total',
         width: 75,
@@ -43,7 +43,7 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{
         },
         summaryRenderer: Ext.util.Format.usMoney
     }, {
-        xtype: 'actioncolumn',
+        xtype: 'actioncolumn',     //удаление заказа
         width: 50,
         text: 'Action',
         items: [{
@@ -51,7 +51,7 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{
 
             tooltip: 'Delete',
             handler: function (grid, rowIndex, colIndex, button, e, options) {
-                
+                //запрос на удаление
                 var record = grid.getSelectionModel().getSelection();
                 var store = grid.getStore();
 
@@ -60,19 +60,19 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{
                 if (store.getCount() >= 1 && record[0]) {
                     var idToDelete = record[0].get('OrderID');
                     var status = record[0].get('Status');
-                    Ext.Msg.show({
+                    Ext.Msg.show({  //подтверждающее окно
                         title: 'Delete?',
                         msg: 'Delete confirm if order status = open! Are you sure you want to delete ID(' + idToDelete + ')?',
                         buttons: Ext.Msg.YESNO,
                         icon: Ext.Msg.QUESTION,
                         fn: function (buttonId) {
                             if (buttonId == 'yes') {
-                                Ext.Ajax.request({
+                                Ext.Ajax.request({ //запрос на удаление
                                     url: 'Checkout/DeleteTrackOrder/',
                                     method: 'post',
                                     params: { OrderID: idToDelete, Status: status },
 
-                                    success: function (response, opts) {
+                                    success: function (response, opts) { //сообщение от успешном выполнении
                                        
                                         data = Ext.decode(response.responseText);
                                         if (data.errorMessage != null) {
@@ -82,7 +82,7 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{
                                            //
                                         }
                                     },
-                                    failure: function (response) {
+                                    failure: function (response) { //сообщение об ошибке
                                         data = Ext.decode(response.responseText);
                                         Ext.Msg.alert('Delete Error', data.errorMessage, Ext.emptyFn);
                                     },
@@ -100,7 +100,7 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{
         this.dockedItems = [{
             xtype: 'toolbar',
             items: [{
-                emptyText: 'Search',
+                emptyText: 'Search', //поиск
                 xtype: 'textfield',
                 listeners: {
                     change: function (field, newValue, oldValue, options) {

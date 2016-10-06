@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.cart.Formula', {
+Ext.define('ExtMVC.view.cart.Formula', { //модалка на редактирование в корзине
     extend: 'Ext.window.Window',
     alias : 'widget.itemform',
 

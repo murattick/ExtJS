@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+//класс заказа
 namespace ExtJSMVC.Models
 {
     public class Order
@@ -28,9 +29,9 @@ namespace ExtJSMVC.Models
 
         public string Status { get; set; }
 
-        public string OrderDate { get; set; }
-        
-        public string ChangeStatus { get; set; }
+        public DateTime OrderDate { get; set; }
+
+        public DateTime ChangeStatus { get; set; }
 
         public string UserName { get; set; }
 
