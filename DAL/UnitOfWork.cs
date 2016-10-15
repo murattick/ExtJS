@@ -14,6 +14,8 @@ namespace ExtJSMVC.DAL
         private GenericRepository<Item> itemRepository;
         //создание репозитория для заказа
         private GenericRepository<Order> orderRepository;
+        //создание репозитория для категорий
+        private GenericRepository<Category> categoryRepository;
 
 
         public GenericRepository<Item> ItemRepository
@@ -37,6 +39,18 @@ namespace ExtJSMVC.DAL
                     this.orderRepository = new GenericRepository<Order>(context);
                 }
                 return orderRepository;
+            }
+        }
+
+        public GenericRepository<Category> CategoryRepository
+        {
+            get
+            {
+                if (this.categoryRepository == null)
+                {
+                    this.categoryRepository = new GenericRepository<Category>(context);
+                }
+                return categoryRepository;
             }
         }
 

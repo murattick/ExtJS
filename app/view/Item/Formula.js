@@ -1,7 +1,7 @@
 Ext.define('ExtMVC.view.item.Formula', { // модалка редактирования
     extend: 'Ext.window.Window',
     alias : 'widget.itemform',
-
+    store: 'Shop',
     requires: ['Ext.form.Panel','Ext.form.field.Text'],
 
     title : 'Edit Item',
@@ -10,7 +10,11 @@ Ext.define('ExtMVC.view.item.Formula', { // модалка редактирования
     width: 280,
 
 
-    initComponent: function() {
+    initComponent: function () {
+        var category = Ext.data.StoreManager.get("Category");
+        category.load();
+        var shop = Ext.data.StoreManager.get("Shop");
+        shop.load();
         this.items = [
             {
                 xtype: 'form',
@@ -46,15 +50,15 @@ Ext.define('ExtMVC.view.item.Formula', { // модалка редактирования
                         regexText: 'Must be in the format 12-3456-AB78',
                         fieldLabel: 'Code'
                     },
-                     { //вывод из стора списка добавленных категорий
-                         xtype: 'combobox',
-                         fieldLabel: 'Choose Category',
-                         displayField: 'Category',
-                         valueField: 'Category',
-                         store: shop,
-                         name: 'Category',
-                         queryMode: 'local',
-                     },
+                    {  //вывод из стора списка добавленных категорий
+                        xtype: 'combobox',
+                        fieldLabel: 'Choose Category',
+                        displayField: 'Name',
+                        valueField: 'CategoryID',
+                        store: category,
+                        name: 'CategoryID',
+                        queryMode: 'local',
+                    },
                     { //вывод из стора списка добавленных брендов
                         xtype: 'combobox',
                         fieldLabel: 'Choose Brand',
@@ -83,7 +87,7 @@ Ext.define('ExtMVC.view.item.Formula', { // модалка редактирования
             items: ['->', {
                 iconCls: 'icon-save',
                 text: 'Save',
-                action: 'save'
+                action: 'saveItem'
             },{
                 iconCls: 'icon-reset',
                 text: 'Cancel',

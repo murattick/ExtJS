@@ -1,6 +1,7 @@
 Ext.define('ExtMVC.view.item.ItemGrid', { //грид товаров
         extend: 'Ext.grid.Panel',
         alias: 'widget.itemgrid',
+        id: 'itemgrid',
 
         store: 'Shop',
         requires: ['Ext.toolbar.Paging'],
@@ -10,12 +11,13 @@ Ext.define('ExtMVC.view.item.ItemGrid', { //грид товаров
 		    var me = this;
             this.columns = [
                { xtype: 'rownumberer' },
-               { text: 'ID', width: 170, dataIndex: 'ItemID', flex: 1 },
-               { text: 'Title', width: 170, dataIndex: 'Title', flex: 1 },
-               { text: 'Code', width: 170, dataIndex: 'Code', flex: 1 },
-               { text: 'Brand', width: 170, dataIndex: 'Brand', flex: 1 },
-               { text: 'Category', width: 170, dataIndex: 'Category', flex: 1 },
-               { text: 'Price', width: 170, dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney },
+               //{ text: 'ID', width: 170, dataIndex: 'ItemID', flex: 1 },
+               { text: 'Title', dataIndex: 'Title', flex: 1 },
+               { text: 'Code', dataIndex: 'Code', flex: 1 },
+               { text: 'Brand', dataIndex: 'Brand', flex: 1 },
+               { text: 'CategoryID', dataIndex: 'CategoryID', flex: 1, },
+               { text: 'Category Name', dataIndex: 'Category.Name', flex: 1, }, //поле "имя" категории
+               { text: 'Price', dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney },
                {
                    xtype: 'actioncolumn',
                    width: 50,
@@ -40,7 +42,8 @@ Ext.define('ExtMVC.view.item.ItemGrid', { //грид товаров
                 xtype: 'toolbar',
                 items: [{                    
                     xtype: 'textfield',
-                    emptyText: 'Search for Title or Category',
+                    emptyText: 'Search for Title or Code',
+                    value: '',
                     width: 170,
                     listeners: {
                         change: function (field, newValue, oldValue, options) {
@@ -54,21 +57,12 @@ Ext.define('ExtMVC.view.item.ItemGrid', { //грид товаров
                                 grid.store.filter({
                                     filterFn: function (record) {
                                         return matcher.test(record.get('Title')) ||
-                                               matcher.test(record.get('Category'));
+                                               matcher.test(record.get('Code'));
                                     }
                                 });
                             }
                         }
                     }
-                },'-',
-                {
-                    
-                        text: 'Clear Filter',
-                        handler: function () {
-         
-                            var audio = Ext.getStore('Shop'); //отфильтрован store по категории аудио
-                            audio.clearFilter();
-                        },
                 }
                 ]
             },

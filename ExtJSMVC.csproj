@@ -206,6 +206,7 @@
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\MyAccountController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
@@ -215,6 +216,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CustomMembership.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,7 +237,6 @@
     <Compile Include="Models\Role.cs">
       <DependentUpon>CustomMembership.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SampleData.cs" />
     <Compile Include="Models\StoreEntities.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>CustomMembership.tt</DependentUpon>
@@ -247,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controller\Category.js" />
     <Content Include="app\controller\Cart.js" />
     <Content Include="app\controller\Account.js" />
     <Content Include="app\controller\Order.js" />
@@ -257,6 +259,8 @@
     <Content Include="app\html\home_tab.html" />
     <Content Include="app\img\shop.jpg" />
     <Content Include="app\model\Account.js" />
+    <Content Include="app\model\Category.js" />
+    <Content Include="app\model\Itemview.js" />
     <Content Include="app\model\Order.js" />
     <Content Include="app\model\Cart.js" />
     <Content Include="app\model\Item.js" />
@@ -264,6 +268,7 @@
     <Content Include="app\store\Autorization.js" />
     <Content Include="app\store\Account.js" />
     <Content Include="app\store\AdminShop.js" />
+    <Content Include="app\store\Category.js" />
     <Content Include="app\store\TrackOrder.js" />
     <Content Include="app\store\Order.js" />
     <Content Include="app\store\Cart.js" />
@@ -360,10 +365,15 @@
     <Content Include="app\view\cart\AddToCart.js" />
     <Content Include="app\view\cart\CartGrid.js" />
     <Content Include="app\view\cart\Formula.js" />
+    <Content Include="app\view\Category\Formula.js" />
+    <Content Include="app\view\Category\MenuGrid.js" />
+    <Content Include="app\view\Category\CategoryGrid.js" />
+    <Content Include="app\view\Category\Add.js" />
     <Content Include="app\view\Item\AdminItemGrid.js" />
     <Content Include="app\view\Item\ItemGrid.js" />
     <Content Include="app\view\Item\GridDetail.js" />
     <Content Include="app\view\Item\GridMasterDetail.js" />
+    <Content Include="app\view\Item\ItemCategoryGrid.js" />
     <Content Include="app\view\login\AllAccountGrid.js" />
     <Content Include="app\view\login\Formula.js" />
     <Content Include="app\view\login\LoginWindow.js" />
@@ -392,6 +402,7 @@
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\placeholder.gif" />
+    <Content Include="Content\Images\Search.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -2272,6 +2283,7 @@
     <Content Include="extjs\resources\themes\templates\resources\sass\config.rb" />
     <Content Include="extjs\resources\themes\templates\resources\sass\my-ext-theme.scss" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

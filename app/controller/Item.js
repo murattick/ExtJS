@@ -2,10 +2,11 @@ Ext.define('ExtMVC.controller.Item', {
     extend: 'Ext.app.Controller',
 
     stores: ['Shop', 'AdminShop'],
-    models: ['Item'],
+    models: ['Item', 'Itemview'],
 
-    views: ['item.Formula', 'item.Add', 'item.TabPanel', 'item.AdminItemGrid',
+    views: ['item.Formula', 'item.Add', 'item.TabPanel', 'item.AdminItemGrid', 
             'item.ItemGrid', 'item.GridDetail', 'item.GridMasterDetail',
+            'Category.CategoryGrid', 
             'menu.TopMenu', 'menu.LMenu',
             'cart.CartGrid', 'cart.AddToCart'
     ],
@@ -34,16 +35,16 @@ Ext.define('ExtMVC.controller.Item', {
             'adminitemgrid dataview': {
                 itemdblclick: this.editItem
             },
-            'adminitemgrid button[action=add]': {
+            'adminitemgrid button[action=addItem]': {
                 click: this.addItem
             },
-            'itemform button[action=adding]': {
+            'itemform button[action=addingItem]': {
                 click: this.addingItem
             },
-            'itemform button[action=save]': {
+            'itemform button[action=saveItem]': {
                 click: this.updateItem
             },
-            'adminitemgrid button[itemId=delete]': {
+            'adminitemgrid button[itemId=deleteItem]': {
                 click: this.deleteItem
 			} 
         });
@@ -70,12 +71,14 @@ Ext.define('ExtMVC.controller.Item', {
             record = Ext.create('ExtMVC.model.Item');
             record.set(values);
             this.getAdminShopStore().add(record);
+            this.getShopStore().add(record);
             novo = true;
         }
         else Ext.Msg.alert('Invalid form!', 'Please try again.');
 			
         win.close();
         this.getAdminShopStore().sync();
+        this.getShopStore().load();
     },
 
     editItem: function (grid, record) {
@@ -101,6 +104,7 @@ Ext.define('ExtMVC.controller.Item', {
 		
         win.close();
         this.getAdminShopStore().sync();
+        this.getShopStore().load();
 
     },
 	//onDeleteClick: function () { 
@@ -129,10 +133,14 @@ Ext.define('ExtMVC.controller.Item', {
                 var grid = this.getItemGrid();
                 var record = grid.getSelectionModel().getSelection();
                 var store = this.getAdminShopStore();
-
+                var store2 = this.getShopStore();
+                debugger;
                 if (record.length)
-                store.remove(record);
+                    store.remove(record);
+                    store2.remove(record);
+
                 this.getAdminShopStore().sync();
+                this.getShopStore().load();
             }
         }, this);
            

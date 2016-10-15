@@ -1,11 +1,11 @@
-//модель товара
-Ext.define('ExtMVC.model.Item', {
+//модель товара для отображения наименования ктегории
+Ext.define('ExtMVC.model.Itemview', {
     extend: 'Ext.data.Model',
     idProperty: 'ItemID',
 
     fields: [
         { name: 'ItemID', type: 'int' },
-        ///{ name: 'Category.Name' },
+        { name: 'Category.Name' },
         { name: 'Title', type: 'string', mapping: 'Title' },
         { name: 'Code', type: '' },
         { name: 'Brand', type: 'string' },

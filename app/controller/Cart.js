@@ -5,7 +5,7 @@ Ext.define('ExtMVC.controller.Cart', {
     models: ['Cart', 'Item'],
 
     views: ['menu.TopMenu',
-        'item.TabPanel', 'item.ItemGrid',
+        'item.TabPanel', 'item.ItemGrid', 'Category.MenuGrid',
         'cart.CartGrid', 'cart.Formula', 'cart.AddToCart'],
 
     refs: [{

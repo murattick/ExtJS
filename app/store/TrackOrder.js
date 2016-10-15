@@ -12,7 +12,7 @@ Ext.define('ExtMVC.store.TrackOrder', {
             read: '/Checkout/OrderUser',
             create: '/Checkout/AddressAndPayment',
             update: '/Checkout/Update',
-            destroy: '/Checkout/Delete',
+            destroy: '/Checkout/DeleteTrackOrder',
         },
         reader: {
             type: 'json',

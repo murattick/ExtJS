@@ -4,7 +4,7 @@ Ext.application({
     name: 'ExtMVC',
     //контройлеры проекта
     controllers: [
-        'Item', 'Login', 'Cart', 'Order', 'Account'
+        'Item', 'Login', 'Cart', 'Order', 'Account', 'Category'
     ],
     
     autoCreateViewport: true

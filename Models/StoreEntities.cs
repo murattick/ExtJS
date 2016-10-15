@@ -18,6 +18,9 @@ namespace ExtJSMVC.Models
 
         //добавление в контекст класс заказов
         public virtual DbSet<Order> Orders { get; set; }
+
+        //добавление в контекст класса категорий
+        public virtual DbSet<Category> Categorys { get; set; }
         
     }
 }

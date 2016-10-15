@@ -1,8 +1,8 @@
 //стор на вывод товаров
-Ext.define('ExtMVC.store.Shop', {
+Ext.define('ExtMVC.store.Category', {
     extend: 'Ext.data.Store',
-    model: 'ExtMVC.model.Itemview', //подключена модель для отображения наименования категории (временное решение) 
-    storeId: 'Shop',
+    model: 'ExtMVC.model.Category',
+
     autoLoad: true,
     pageSize: 20,
     autoLoad: { start: 0, limit: 20 },
@@ -10,11 +10,14 @@ Ext.define('ExtMVC.store.Shop', {
     proxy: {
         type: 'ajax',
         api: {
-            read: '/Shop/Get'
+            read: '/Category/Get',
+            create: '/Category/Create',
+            destroy: '/Category/Delete',
+            update: '/Category/Update',
         },
         reader: {
             type: 'json',
-            idProperty: 'ItemID',
+            idProperty: 'CategoryID',
             totalProperty: 'total',
             root: 'Data',
             messageProperty: 'message',

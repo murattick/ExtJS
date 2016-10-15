@@ -11,6 +11,8 @@ Ext.define('ExtMVC.view.item.Add', { //модалка на добавление нового товара
 
     initComponent: function () {
 
+        var category = Ext.data.StoreManager.get("Category");
+        category.load();
         var shop = Ext.data.StoreManager.get("Shop");
         shop.load();
 
@@ -50,11 +52,13 @@ Ext.define('ExtMVC.view.item.Add', { //модалка на добавление нового товара
                     {  //вывод из стора списка добавленных категорий
                         xtype: 'combobox',
                         fieldLabel: 'Choose Category',
-                        displayField: 'Category',
-                        valueField: 'Category',
-                        store: shop,
-                        name: 'Category',
+                        displayField: 'Name',
+                        valueField: 'CategoryID',
+                        store: category,
+                        name: 'CategoryID',
                         queryMode: 'local',
+                        triggerAction: 'all',
+                        editable: false
                     },
                     { //вывод из стора добавленных брендов
                         xtype: 'combobox',
@@ -64,6 +68,7 @@ Ext.define('ExtMVC.view.item.Add', { //модалка на добавление нового товара
                         store: shop,
                         name: 'Brand',
                         queryMode: 'local',
+
                        
                     },
                     {
@@ -84,7 +89,7 @@ Ext.define('ExtMVC.view.item.Add', { //модалка на добавление нового товара
             items: ['->', {
                 iconCls: 'icon-save',
                 text: 'Add',
-                action: 'adding'
+                action: 'addingItem'
             },{
                 iconCls: 'icon-reset',
                 text: 'Cancel',

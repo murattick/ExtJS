@@ -1,10 +1,10 @@
 Ext.define('ExtMVC.view.item.GridMasterDetail' ,{
         extend: 'Ext.Panel',
         alias: 'widget.gridmasterdetail',
+        id: 'gridmasterdetail',
         store: 'Shop',
 
         frame: true,
-        width: 580,
         height: 520,
         layout: 'border',
 

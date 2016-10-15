@@ -47,50 +47,22 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{ //грид для отслеживание заказа
         width: 50,
         text: 'Action',
         items: [{
-            icon: 'Content/Images/Delete.gif',  // Use a URL in the icon config
+            icon: 'Content/Images/Delete.gif', 
 
             tooltip: 'Delete',
-            handler: function (grid, rowIndex, colIndex, button, e, options) {
-                //запрос на удаление
-                var record = grid.getSelectionModel().getSelection();
-                var store = grid.getStore();
-
+            handler: function (grid, rowIndex, colIndex) {
                 var rec = grid.getStore().getAt(rowIndex);
-                
-                if (store.getCount() >= 1 && record[0]) {
-                    var idToDelete = record[0].get('OrderID');
-                    var status = record[0].get('Status');
-                    Ext.Msg.show({  //подтверждающее окно
-                        title: 'Delete?',
-                        msg: 'Delete confirm if order status = open! Are you sure you want to delete ID(' + idToDelete + ')?',
-                        buttons: Ext.Msg.YESNO,
-                        icon: Ext.Msg.QUESTION,
-                        fn: function (buttonId) {
-                            if (buttonId == 'yes') {
-                                Ext.Ajax.request({ //запрос на удаление
-                                    url: 'Checkout/DeleteTrackOrder/',
-                                    method: 'post',
-                                    params: { OrderID: idToDelete, Status: status },
+                Ext.Msg.confirm("Confirmation", "Do you want to Delete your order '" + rec.get('OrderID') + "'? Order will be removed if the order status is 'Open'.", function (btnText) {
+                    if (btnText === "no") {
+                        // function on click no
+                    }
+                    else if (btnText === "yes") {
 
-                                    success: function (response, opts) { //сообщение от успешном выполнении
-                                       
-                                        data = Ext.decode(response.responseText);
-                                        if (data.errorMessage != null) {
-                                            Ext.Msg.alert('Delete Message', data.errorMessage, Ext.emptyFn);
-                                            grid.getStore().remove(rec);
-                                        } else {
-                                           //
-                                        }
-                                    },
-                                    failure: function (response) { //сообщение об ошибке
-                                        data = Ext.decode(response.responseText);
-                                        Ext.Msg.alert('Delete Error', data.errorMessage, Ext.emptyFn);
-                                    },
-                                });
-                            }
-                        }
-                    });
-                }
+                        grid.getStore().remove(rec);
+                        grid.getStore().sync();
+                    }
+                }, this);
+                
             }
         }]
     },
@@ -112,8 +84,9 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{ //грид для отслеживание заказа
                             var matcher = new RegExp(Ext.String.escapeRegex(newValue), "i");
                             grid.store.filter({
                                 filterFn: function (record) {
-                                    return matcher.test(record.get('ItemID')) ||
-                                            matcher.test(record.get('Title'));
+                                    return matcher.test(record.get('Status')) ||
+                                            matcher.test(record.get('Title')) ||
+                                            matcher.test(record.get('OrderID'));
                                 }
                             });
                         }

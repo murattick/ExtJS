@@ -50,16 +50,35 @@ Ext.define('ExtMVC.view.order.OrderGrid' ,{ //грид всех заказов
         },
         summaryRenderer: Ext.util.Format.usMoney
     },
-              
+        {
+            xtype: 'actioncolumn',     //удаление заказа
+            width: 50,
+            text: 'Action',
+            items: [{
+                icon: 'Content/Images/Delete.gif',
+
+                tooltip: 'Delete',
+                handler: function (grid, rowIndex, colIndex) {
+                    var rec = grid.getStore().getAt(rowIndex);
+                    Ext.Msg.confirm("Confirmation", "Do you want to Delete your order '" + rec.get('OrderID') + "'? Order will be removed if the order status is 'Open' if you are not an administrator.", function (btnText) {
+                        if (btnText === "no") {
+                            // function on click no
+                        }
+                        else if (btnText === "yes") {
+
+                            grid.getStore().remove(rec);
+                            grid.getStore().sync();
+                        }
+                    }, this);
+
+                }
+            }]
+        },
         ];
             
         this.dockedItems = [{
             xtype: 'toolbar',
-            items: [{            //удаление зааза
-                text: 'Delete',
-                action: 'delete',
-                itemId: 'deleteOrder' 
-            },'-', {
+            items: [{
                 xtype: 'textfield',
                 emptyText: 'Search',        //поиск
                 listeners: {

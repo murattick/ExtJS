@@ -12,28 +12,51 @@ namespace ExtJSMVC.Controllers
     {
         //подключение репозитория
         private UnitOfWork unitOfWork = new UnitOfWork();
-
         //вывод всех товаров
         // GET: /Store/
-        [Authorize]
-        public JsonResult Get(int? start, int? limit)
+        public JsonResult Get(int? start, int? limit, int? data)
         {
             {
-                start = start.HasValue ? start.Value : 0;
-                limit = limit.HasValue ? limit.Value : Int32.MaxValue;
-
-                //вычисляется количество товаров
-                int cnt = unitOfWork.ItemRepository.Get().Count();
-
-                //сам запрос на вывод товаров
-                var recs = unitOfWork.ItemRepository.Get().
-                    Skip(start.Value).Take(limit.Value).ToList();
-
-                return Json(new
+                if (data == null) //значение CategoryID, если не пришло, то выводится список товаров в произвольном порядке
                 {
-                    Data = recs,
-                    total = cnt
-                }, JsonRequestBehavior.AllowGet);
+
+
+                    start = start.HasValue ? start.Value : 0;
+                    limit = limit.HasValue ? limit.Value : Int32.MaxValue;
+
+                    //вычисляется количество товаров
+                    int cnt = unitOfWork.ItemRepository.Get().Count();
+
+                    //сам запрос на вывод товаров
+                    var recs = unitOfWork.ItemRepository.Get().
+                        Skip(start.Value).Take(limit.Value).ToList();
+
+                    return Json(new
+                    {
+                        Data = recs,
+                        total = cnt
+                    }, JsonRequestBehavior.AllowGet);
+                }
+                else //если пришёл, то выводится где содержется данный CategoryID
+                {
+                    start = start.HasValue ? start.Value : 0;
+                    limit = limit.HasValue ? limit.Value : Int32.MaxValue;
+
+                    //вычисляется количество товаров
+                    int cnt = unitOfWork.ItemRepository.Get(a => a.CategoryID == data).Count();
+
+                    //сам запрос на вывод товаров
+                    var recs = unitOfWork.ItemRepository.Get(a => a.CategoryID == data).
+                        Skip(start.Value).Take(limit.Value).ToList();
+
+
+
+                    return Json(new
+                    {
+                        Data = recs,
+                        total = cnt
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
         }
 
@@ -78,7 +101,7 @@ namespace ExtJSMVC.Controllers
                     //данные
                     rec.Title = data.Title;
                     rec.Code = data.Code;
-                    rec.Category = data.Category;
+                    //rec.Category = data.Category;
                     rec.Brand = data.Brand;
                     rec.Price = data.Price;
 
@@ -108,14 +131,14 @@ namespace ExtJSMVC.Controllers
 
             {
                 //добавление
-                unitOfWork.ItemRepository.Insert(data);
-                //сохранение
+                
+               unitOfWork.ItemRepository.Insert(data);
+               //сохранение
                 unitOfWork.Save();
                 success = true;
                 message = "add method called successfully";
             }
-
-
+            
             return Json(new
             {
                 data,

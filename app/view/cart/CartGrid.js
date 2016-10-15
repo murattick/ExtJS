@@ -53,8 +53,18 @@ Ext.define('ExtMVC.view.cart.CartGrid', {
             tooltip: 'Delete',
             handler: function (grid, rowIndex, colIndex) {
                 var rec = grid.getStore().getAt(rowIndex);
-                grid.getStore().remove(rec);
-               
+                Ext.Msg.confirm("Confirmation", "Do you want to Delete item '" + rec.get('Title') + "' from cart?", function (btnText) {
+                    if (btnText === "no") {
+                        // function on click no
+                    }
+                    else if (btnText === "yes") {
+
+                        grid.getStore().remove(rec);
+                        grid.getStore().sync();
+                        shop.load();
+                    }
+                }, this);
+
             }
         }]
     }, {

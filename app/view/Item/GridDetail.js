@@ -6,7 +6,6 @@ Ext.define('ExtMVC.view.item.GridDetail', {
         '<img align="right" src="/Content/Images/placeholder.gif"/>',
         '<b>Title:</b> {Title}<br/>',
         '<b>Code:</b> {Code}<br/>',
-        '<b>Category:</b> {Category}<br/>',
         '<b>Brand:</b> {Brand}<br/>',
         '<b>Price:</b> {Price}<br/>'
     ],

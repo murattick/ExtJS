@@ -15,7 +15,8 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', { //грид админа
                { text: 'Title', width: 170, dataIndex: 'Title', flex: 1 },
                { text: 'Code', width: 170, dataIndex: 'Code', flex: 1 },
                { text: 'Brand', width: 170, dataIndex: 'Brand', flex: 1 },
-               { text: 'Category', width: 170, dataIndex: 'Category', flex: 1 },
+               { text: 'Category', width: 170, dataIndex: 'CategoryID', flex: 1 },
+               //{ text: 'Category', width: 170, dataIndex: 'Category.Name', flex: 1 },
                { text: 'Price', width: 170, dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney },
                {
                    xtype: 'actioncolumn',
@@ -32,6 +33,26 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', { //грид админа
                                cart.down('form').loadRecord(rec);
                            }
                        }
+                   }, {
+                       icon: 'Content/Images/Delete.gif',  // удаление из корзины
+
+                       tooltip: 'Delete',
+                       handler: function (grid, rowIndex, colIndex) {
+                           var rec = grid.getStore().getAt(rowIndex);
+                           Ext.Msg.confirm("Confirmation", "Do you want to Delete item '" + rec.get('Title') + "'?", function (btnText) {
+                               if (btnText === "no") {
+                                   // function on click no
+                               }
+                               else if (btnText === "yes") {
+
+                                   grid.getStore().remove(rec);
+                                   grid.getStore().sync();
+                                   var shop = Ext.data.StoreManager.get("Shop");
+                                   shop.load();
+                               }
+                           }, this);
+
+                       }
                    }]
                }
               
@@ -40,15 +61,12 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', { //грид админа
             this.dockedItems = [{
                 xtype: 'toolbar',
                 items: [{ //кнопка добавления
-                    itemId: 'add',
+                    itemId: 'addItem',
                     text: 'Add',
-                    action: 'add'
-                }, '-', { //кнопка удаления
-                    text: 'Delete',
-					itemId: 'delete' 
+                    action: 'addItem'
                 }, '-', { //поиск
                     xtype: 'textfield',
-                    emptyText: 'Search for Title or Category',
+                    emptyText: 'Search...',
                     width: 170,
                     listeners: {
                         change: function (field, newValue, oldValue, options) {
@@ -68,6 +86,18 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', { //грид админа
                         }
                     }
                 }, '->', { //открывание новой таб с заказами
+                    text: 'Grid Category',
+                    width: 80,
+                    handler: function (num) {
+                        Ext.getCmp('tabs').add({
+                            title: 'Grid Category',
+                            dockedItems: [{
+                                xtype: 'categorygrid'
+                            }],
+                            closable: true
+                        });
+                    }
+                }, '-', { //открывание новой таб с заказами
                     text: 'Grid Order',
                     width: 70,
                     handler: function (num) {

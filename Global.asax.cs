@@ -37,7 +37,6 @@ namespace SenchaDesignerExtension
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-            System.Data.Entity.Database.SetInitializer(new ExtJSMVC.Models.SampleData());
             AuthConfig.RegisterAuth();
             Database.SetInitializer<StoreContext>(new DropCreateDatabaseIfModelChanges<StoreContext>());
    

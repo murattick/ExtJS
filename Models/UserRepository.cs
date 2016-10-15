@@ -159,7 +159,8 @@ namespace CustomMembership.Models
         //roles provider
         public User GetDBUser(string username)
         {
-            return db.Users.Single(x => x.UserName == username);
+            
+        return db.Users.Single(x => x.UserName == username);
         }
         public SenchaDesignerExtension.Models.Role GetRole(string name)
         {

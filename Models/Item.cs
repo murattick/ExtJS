@@ -11,9 +11,7 @@ namespace ExtJSMVC.Models
 {
     public class Item
     {
-        [ScaffoldColumn(false)]
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int ItemID { get; set; }
 
         [DisplayName("Наименование")]
@@ -21,15 +19,14 @@ namespace ExtJSMVC.Models
         [StringLength(160)]
         public string Title { get; set; }
 
+        public int CategoryID { get; set; }
+
         //[RegularExpression(@"^\d{4}-\d{4}$")]
         [Required]
         public string Code { get; set; }
 
         [DisplayName("Бренд")]
         public string Brand { get; set; }
-
-        [DisplayName("Категория")]
-        public string Category { get; set; }
 
         [DisplayName("Стоимость")]
         [Required(ErrorMessage = "Введите стомость")]
@@ -41,9 +38,7 @@ namespace ExtJSMVC.Models
         [StringLength(1024)]
         public string ItemArtUrl { get; set; }
 
-        //public virtual Category Category { get; set; }
-        //public virtual Brand Brand { get; set; }
-        //public virtual ICollection<Order> Orders { get; set; }
+        public virtual Category Category { get; set; }
 
     }
 }
