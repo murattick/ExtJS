@@ -37,7 +37,7 @@ namespace ExtJSMVC.Controllers
         }
 
         //доббавление категории, только для администратора
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public JsonResult Create(Category data)
         {
@@ -95,7 +95,7 @@ namespace ExtJSMVC.Controllers
             });
         }
         //удаление товара, только дял администратора
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public JsonResult Delete(Category data)
         {
