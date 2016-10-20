@@ -5,9 +5,8 @@ Ext.define('ExtMVC.model.Account', {
 
     fields: [
         { name: 'UserId', type: 'int' },
-        //{ name: 'RoleId', type: 'auto' },
 		{ name: 'Code', type: 'string' },
-		{ name: 'Discount', type: 'string' },
+		{ name: 'Discount' },
         { name: 'UserName', type: 'string' },
         { name: 'FirstName', type: 'string' },
         { name: 'LastName', type: 'string' },

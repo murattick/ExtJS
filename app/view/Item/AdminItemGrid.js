@@ -48,6 +48,7 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', { //грид админа
                                    grid.getStore().remove(rec);
                                    grid.getStore().sync();
                                    var shop = Ext.data.StoreManager.get("Shop");
+                                   shop.remove(rec);
                                    shop.load();
                                }
                            }, this);
@@ -64,7 +65,12 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', { //грид админа
                     itemId: 'addItem',
                     text: 'Add',
                     action: 'addItem'
-                }, '-', { //поиск
+                }, //'-', { //кнопка удаления
+                //    itemId: 'deleteItem',
+                //    text: 'Delete',
+                //    action: 'deleteItem'
+                //}, '-', 
+                { //поиск
                     xtype: 'textfield',
                     emptyText: 'Search...',
                     width: 170,

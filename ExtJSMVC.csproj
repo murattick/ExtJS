@@ -265,7 +265,6 @@
     <Content Include="app\model\Cart.js" />
     <Content Include="app\model\Item.js" />
     <Content Include="app\store\AllAccount.js" />
-    <Content Include="app\store\Autorization.js" />
     <Content Include="app\store\Account.js" />
     <Content Include="app\store\AdminShop.js" />
     <Content Include="app\store\Category.js" />
@@ -375,6 +374,7 @@
     <Content Include="app\view\Item\GridMasterDetail.js" />
     <Content Include="app\view\Item\ItemCategoryGrid.js" />
     <Content Include="app\view\login\AllAccountGrid.js" />
+    <Content Include="app\view\login\FormulaAdmin.js" />
     <Content Include="app\view\login\Formula.js" />
     <Content Include="app\view\login\LoginWindow.js" />
     <Content Include="app\view\login\AccountGrid.js" />

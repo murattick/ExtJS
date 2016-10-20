@@ -12,6 +12,7 @@ Ext.define('ExtMVC.view.login.AccountGrid' ,{ //грид своего аккаунта
         this.columns = [
     { xtype: 'rownumberer' },
     { header: 'UserId', width: 170, dataIndex: 'UserId', flex: 1 },
+    { header: 'Discount %', width: 170, dataIndex: 'Discount', flex: 1 },
     { header: 'Login', width: 170, dataIndex: 'UserName', flex: 1 },
 	{ header: 'Code', width: 170, dataIndex: 'Code', flex: 1 },
     { header: 'FirstName', width: 170, dataIndex: 'FirstName', flex: 1 },

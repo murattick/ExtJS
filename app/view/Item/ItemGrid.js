@@ -15,7 +15,7 @@ Ext.define('ExtMVC.view.item.ItemGrid', { //грид товаров
                { text: 'Title', dataIndex: 'Title', flex: 1 },
                { text: 'Code', dataIndex: 'Code', flex: 1 },
                { text: 'Brand', dataIndex: 'Brand', flex: 1 },
-               { text: 'CategoryID', dataIndex: 'CategoryID', flex: 1, },
+               { text: 'CategoryID', dataIndex: 'CategoryID', flex: 1, hidden: true },
                { text: 'Category Name', dataIndex: 'Category.Name', flex: 1, }, //поле "имя" категории
                { text: 'Price', dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney },
                {

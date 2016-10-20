@@ -11,6 +11,7 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{ //грид для отслеживание заказа
     { xtype: 'rownumberer' },
     { header: 'OrderNumber', width: 170, dataIndex: 'OrderID', flex: 1 },
     { text: 'UserName', width: 170, dataIndex: 'UserName', flex: 1 },
+    { header: 'Discount %', width: 170, dataIndex: 'Discount', flex: 1 },
     { header: 'ItemID', width: 170, dataIndex: 'ItemID', flex: 1 },
     { text: 'Title', width: 170, dataIndex: 'Title', flex: 1 },
     { text: 'Price', width: 170, dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney },
@@ -26,7 +27,7 @@ Ext.define('ExtMVC.view.order.TrackOrder' ,{ //грид для отслеживание заказа
         sortable: false,
         groupable: false,
         renderer: function (value, metaData, record, rowIdx, colIdx, store, view) {
-            return Ext.util.Format.usMoney(record.get('Price') * record.get('Count'));
+            return Ext.util.Format.usMoney(record.get('Price') * record.get('Count') - (record.get('Price') * record.get('Count') * record.get('Discount') / 100));
         },
         dataIndex: 'Total',
         summaryType: function (records) {

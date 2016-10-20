@@ -21,6 +21,8 @@ namespace ExtJSMVC.Models
 
         public int? ItemID { get; set; }
 
+        public int? Discount { get; set; }
+
         public int Count { get; set; }
 
         public int Price { get; set; }

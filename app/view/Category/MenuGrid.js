@@ -35,8 +35,6 @@ Ext.define('ExtMVC.view.Category.MenuGrid', { //грид Category для меню слева
                            //method to call when the request is successful
                            failure: function (response) {
 
-                              
-
                            },
                            success: function (response, opts) {
 
@@ -44,9 +42,7 @@ Ext.define('ExtMVC.view.Category.MenuGrid', { //грид Category для меню слева
                                    params: {
                                        data: JSON.stringify(data)
                                    }
-                               });
-
-                               
+                               });                               
                            }
                        });
                    }
@@ -54,8 +50,6 @@ Ext.define('ExtMVC.view.Category.MenuGrid', { //грид Category для меню слева
            }
           
         ];
-
-       
 
         this.callParent();
     }

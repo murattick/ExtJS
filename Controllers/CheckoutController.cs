@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CustomMembership.Models;
+using SenchaDesignerExtension.Models;
 
 //контройлер заказов
 
@@ -14,7 +16,7 @@ namespace ExtJSMVC.Controllers
     { 
         //подключение репозитория
         private UnitOfWork unitOfWork = new UnitOfWork();
-
+        public CustomMembershipDB db = new CustomMembershipDB();
         //вывод всех заказов, только для администратора
         [Authorize(Roles = "Admin")]
         public JsonResult Get(int? start, int? limit, Order order)
@@ -46,8 +48,10 @@ namespace ExtJSMVC.Controllers
             string message = "no record found";
            
             {
+                User user = db.Users.Where(m => m.UserName == HttpContext.User.Identity.Name).First();
                 //добавление имени авторизированного пользователя в заказ
                 data.UserName = User.Identity.Name;
+                data.Discount = user.Discount;
                 data.OrderDate = DateTime.Now;
                 data.ChangeStatus = DateTime.Now;
                 //сохоранение заказа
@@ -169,17 +173,14 @@ namespace ExtJSMVC.Controllers
 
         //отслеживание заказа пользователем по авторизованному имени
         [Authorize]
-        public JsonResult OrderUser(int? start, int? limit)
+        public JsonResult OrderUser()
         {
             
-                start = start.HasValue ? start.Value : 0;
-                limit = limit.HasValue ? limit.Value : Int32.MaxValue;
 
             //выборка количества заказов 
                 int cnt = unitOfWork.OrderRepository.Get().Count();
             //выбираются заказы совершенные данным авторизированным пользователем.
-                var recs = unitOfWork.OrderRepository.Get(o => o.UserName == User.Identity.Name).
-                    Skip(start.Value).Take(limit.Value).FirstOrDefault();
+                var recs = unitOfWork.OrderRepository.Get(o => o.UserName == User.Identity.Name);
 
 
                 return Json(new

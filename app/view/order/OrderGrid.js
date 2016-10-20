@@ -12,6 +12,7 @@ Ext.define('ExtMVC.view.order.OrderGrid' ,{ //грид всех заказов
     { xtype: 'rownumberer' },
     { header: 'OrderID', width: 170, dataIndex: 'OrderID', flex: 1 },
     { header: 'UserName', width: 170, dataIndex: 'UserName', flex: 1 },
+    { header: 'Discount %', width: 170, dataIndex: 'Discount', flex: 1 },
     { header: 'ItemID', width: 170, dataIndex: 'ItemID', flex: 1 },
     { header: 'ItemCode', width: 170, dataIndex: 'Code', flex: 1 },
     { header: 'Title', width: 170, dataIndex: 'Title', flex: 1 },
@@ -33,7 +34,7 @@ Ext.define('ExtMVC.view.order.OrderGrid' ,{ //грид всех заказов
         sortable: false,
         groupable: false,
         renderer: function(value, metaData, record, rowIdx, colIdx, store, view) {
-            return Ext.util.Format.usMoney(record.get('Price') * record.get('Count'));
+            return Ext.util.Format.usMoney(record.get('Price') * record.get('Count') - (record.get('Price') * record.get('Count') * record.get('Discount') / 100));
         },
         dataIndex: 'Total',
         summaryType: function(records){

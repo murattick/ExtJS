@@ -11,6 +11,7 @@ Ext.define('ExtMVC.model.Order', {
         { name: 'Status', type: 'string' },
         { name: 'Count', type: 'int' },
         { name: 'Price', type: 'int' },
+        { name: 'Discount', type: 'int'},
         { name: 'OrderDate', type: 'date', dateFormat: 'MS' },
         { name: 'ChangeStatus', type: 'date', dateFormat: 'MS' },
         { name: 'UserName', type: 'string' }

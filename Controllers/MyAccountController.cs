@@ -84,6 +84,7 @@ namespace SenchaDesignerExtension.Controllers
 
                   //добавление данных в аккаунт
                     rec.Code = data.Code;
+                    rec.Discount = data.Discount;
                     rec.FirstName = data.FirstName;
                     rec.LastName = data.LastName;
                     rec.Phone = data.Phone;

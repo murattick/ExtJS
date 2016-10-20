@@ -16,11 +16,8 @@ Ext.define('ExtMVC.controller.Item', {
         selector: 'grid'
     },
     {
-        ref: 'adminitemgrid',
+        ref: 'adminitemGrid',
         selector: 'grid'
-    }, {
-        ref: 'leftMenu',
-        selector: 'menu'
     }, {
         ref: 'topMenu',
         selector: 'menu'
@@ -130,8 +127,8 @@ Ext.define('ExtMVC.controller.Item', {
             }
             else if (btnText === "yes") {
 
-                var grid = this.getItemGrid();
-                var record = grid.getSelectionModel().getSelection();
+                var admingrid = this.getAdminGrid();
+                var record = admingrid.getSelectionModel().getSelection();
                 var store = this.getAdminShopStore();
                 var store2 = this.getShopStore();
                 debugger;
