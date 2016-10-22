@@ -5,13 +5,14 @@ Ext.define('ExtMVC.model.Category', {
 
     fields: [
         { name: 'CategoryID', type: 'int' },
-        { name: 'Name', type: 'string', mapping: 'Name' },
+        { name: 'Name', type: 'string' },
     ],
 
     //associations: [{
     //    type: 'belongsTo',
     //    model: 'ExtMVC.model.Item',
-    //    autoLoad: true
+    //    autoLoad: true,
+    //    name: 'item'
     //}],
     
 });

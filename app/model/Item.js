@@ -5,7 +5,6 @@ Ext.define('ExtMVC.model.Item', {
 
     fields: [
         { name: 'ItemID', type: 'int' },
-        ///{ name: 'Category.Name' },
         { name: 'Title', type: 'string', mapping: 'Title' },
         { name: 'Code', type: '' },
         { name: 'Brand', type: 'string' },
@@ -15,8 +14,9 @@ Ext.define('ExtMVC.model.Item', {
 
     //associations: [{
     //    model: 'ExtMVC.model.Category',
-    //    type: 'hasMany',
-    //    autoLoad: true
+    //    type: 'belongsTo',
+    //    autoLoad: true,
+    //    name: 'category'
     //}],
 	
     

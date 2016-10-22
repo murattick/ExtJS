@@ -75,6 +75,7 @@ Ext.define('ExtMVC.view.item.Add', { //модалка на добавление нового товара
                         xtype: 'numberfield',
                         name: 'Price',
                         fieldLabel: 'Price',
+                        minValue: 1,
                         renderer: Ext.util.Format.usMoney //денежный формат
                     }
                 ]

@@ -15,8 +15,13 @@ Ext.define('ExtMVC.view.item.AdminItemGrid', { //грид админа
                { text: 'Title', width: 170, dataIndex: 'Title', flex: 1 },
                { text: 'Code', width: 170, dataIndex: 'Code', flex: 1 },
                { text: 'Brand', width: 170, dataIndex: 'Brand', flex: 1 },
-               { text: 'Category', width: 170, dataIndex: 'CategoryID', flex: 1 },
-               //{ text: 'Category', width: 170, dataIndex: 'Category.Name', flex: 1 },
+               { text: 'CategoryID', width: 170, dataIndex: 'CategoryID', flex: 1 },
+               { //столбец берется из стора категории.
+                   text: 'Category', width: 170, dataIndex: 'CategoryID', flex: 1, renderer: function (catId) {
+                       return Ext.data.StoreManager.lookup('Category').getById(catId).get('Name');
+                       
+                   }
+               },
                { text: 'Price', width: 170, dataIndex: 'Price', flex: 1, renderer: Ext.util.Format.usMoney },
                {
                    xtype: 'actioncolumn',

@@ -1,4 +1,4 @@
-Ext.define('ExtMVC.view.login.FormulaAdmin', { //добавление адреса к аккаунту
+Ext.define('ExtMVC.view.login.FormulaAdmin', { //добавление адреса к аккаунту и скидки (только для администратора)
     extend: 'Ext.window.Window',
     alias : 'widget.addressDiscountform',
 

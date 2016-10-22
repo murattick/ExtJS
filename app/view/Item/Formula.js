@@ -73,7 +73,9 @@ Ext.define('ExtMVC.view.item.Formula', { // модалка редактирования
                         xtype: 'numberfield',
                         name : 'Price',
                         fieldLabel: 'Price',
-                        renderer: Ext.util.Format.usMoney
+                        renderer: Ext.util.Format.usMoney,
+                        minValue: 1
+
                     }
                 ]
             }
